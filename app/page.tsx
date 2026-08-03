@@ -27,7 +27,7 @@ import {
   X,
   Zap,
 } from "lucide-react";
-import { useEffect, useMemo, useState } from "react";
+import { useMemo, useState } from "react";
 import cars from "../data/cars.json";
 import faqs from "../data/faq.json";
 import gallery from "../data/gallery.json";
@@ -36,8 +36,10 @@ import videos from "../data/video.json";
 
 type Car = (typeof cars)[number];
 
-const hotline = "0359 359 927";
-const hotlineHref = "tel:+84359359927";
+const zaloNumber = "091 400 2141";
+const zaloHref = "https://zalo.me/0914002141";
+const hotline = zaloNumber;
+const hotlineHref = zaloHref;
 
 const navigation = [
   ["Trang chủ", "#trang-chu"],
@@ -241,10 +243,9 @@ function Contact() { return <section id="lien-he" className="scroll-mt-24 bg-whi
 
 function Footer() { return <footer className="border-t border-slate-100 bg-white"><div className="mx-auto grid max-w-7xl gap-10 px-5 py-12 sm:grid-cols-2 lg:grid-cols-4 lg:px-8"><div><div className="flex items-center gap-2 font-heading font-extrabold text-ink"><span className="grid h-8 w-8 place-items-center rounded-lg bg-ink text-white"><CarFront size={16} /></span> TRẠM NHÀ MÌNH</div><p className="mt-4 text-sm leading-6 text-slate-500">Cho thuê xe ô tô tự lái ở Huế.</p></div><div><h3 className="font-heading font-bold text-ink">Điều hướng</h3><div className="mt-4 grid gap-2">{navigation.slice(0, 4).map(([label, href]) => <button key={href} onClick={() => scrollToId(href)} className="text-left text-sm text-slate-500 hover:text-teal">{label}</button>)}</div></div><div><h3 className="font-heading font-bold text-ink">Liên hệ</h3><a href={hotlineHref} className="mt-4 flex items-center gap-2 text-sm font-bold text-teal"><Phone size={16} /> {hotline}</a><p className="mt-3 text-sm text-slate-500">Facebook, Messenger, Zalo: Đang cập nhật.</p></div><div><h3 className="font-heading font-bold text-ink">Thông tin website</h3><p className="mt-4 text-sm leading-6 text-slate-500">Thông tin xe, giá và điều khoản được cập nhật theo nguồn cung cấp.</p></div></div><div className="border-t border-slate-100 px-5 py-5 text-center text-xs text-slate-400">© {new Date().getFullYear()} Trạm Nhà Mình. Thiết kế cho thuê xe tự lái Huế.</div></footer>; }
 
-function FloatingActions() { const [visible, setVisible] = useState(false); useEffect(() => { const onScroll = () => setVisible(window.scrollY > 500); window.addEventListener("scroll", onScroll); return () => window.removeEventListener("scroll", onScroll); }, []); return <div className="fixed bottom-5 right-5 z-40 flex flex-col gap-2"><a href={hotlineHref} aria-label="Gọi điện" className="grid h-11 w-11 place-items-center rounded-full bg-ink text-white shadow-float transition hover:scale-105"><Phone size={19} /></a><a href={hotlineHref} aria-label="Liên hệ" className="grid h-11 w-11 place-items-center rounded-full bg-teal text-white shadow-float transition hover:scale-105"><MessageCircle size={19} /></a><AnimatePresence>{visible && <motion.button initial={{ opacity: 0, scale: .8 }} animate={{ opacity: 1, scale: 1 }} exit={{ opacity: 0, scale: .8 }} onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })} aria-label="Lên đầu trang" className="grid h-11 w-11 place-items-center rounded-full bg-sand text-ink shadow-float transition hover:scale-105"><RotateCcw size={19} /></motion.button>}</AnimatePresence></div>; }
+function FloatingActions() { return <div className="fixed bottom-5 right-5 z-40 flex flex-col gap-2"><a href={zaloHref} target="_blank" rel="noreferrer" aria-label="Nhắn Zalo" className="grid h-11 w-11 place-items-center rounded-full bg-teal text-white shadow-float transition hover:scale-105"><MessageCircle size={19} /></a><a href="#trang-chu" aria-label="Lên đầu trang" className="grid h-11 w-11 place-items-center rounded-full bg-sand text-ink shadow-float transition hover:scale-105"><RotateCcw size={19} /></a></div>; }
 
 export default function Home() {
   const goToCars = () => scrollToId("#danh-sach-xe");
-  const schema = { "@context": "https://schema.org", "@type": "AutoRental", name: "Trạm Nhà Mình", description: "Cho thuê xe ô tô tự lái ở Huế", telephone: "+84359359927", areaServed: "Huế, Việt Nam", url: "https://thuexetulaihue.vn" };
-  return <><script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} /><Header /><main><Hero onSearch={goToCars} /><WhyUs /><CarsSection /><Pricing /><Gallery /><ProcessFaq /><Contact /></main><Footer /><FloatingActions /></>;
+  return <><Header /><main><Hero onSearch={goToCars} /><WhyUs /><CarsSection /><Pricing /><Gallery /><ProcessFaq /><Contact /></main><Footer /><FloatingActions /></>;
 }
