@@ -36,11 +36,12 @@ import videos from "../data/video.json";
 
 type Car = (typeof cars)[number];
 
-const zaloNumber = "091 400 2141";
-const zaloHref = "https://zalo.me/0914002141";
+const hotline = "0986 789 715";
+const hotlineHref = "tel:0986789715";
 const facebookHref = "https://www.facebook.com/huechothuexetulai";
-const hotline = zaloNumber;
-const hotlineHref = zaloHref;
+const zaloNumber = "0986 789 715";
+const zaloHref = "https://zalo.me/0986789715";
+
 
 const navigation = [
   ["Trang chủ", "#trang-chu"],
