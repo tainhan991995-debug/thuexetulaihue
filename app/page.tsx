@@ -169,7 +169,7 @@ function Hero({ onSearch }: { onSearch: () => void }) {
         <motion.div initial={{ opacity: 0, scale: 0.96 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 0.7, delay: 0.08 }} className="relative mx-auto w-full max-w-[500px] lg:mr-0">
           <div className="absolute -inset-4 rounded-[2.5rem] bg-gradient-to-br from-sand/50 via-transparent to-teal/40 blur-2xl" />
           <div className="relative overflow-hidden rounded-[2rem] border border-white/30 bg-white/10 p-2 shadow-[0_35px_80px_rgba(0,0,0,.3)] backdrop-blur-sm">
-            <img src="/images/tram-nha-minh-fleet.png" alt="Đội xe Cho Thuê Tự Lái tại Huế" className="aspect-[.73] w-full rounded-[1.6rem] object-cover object-top" />
+            <img src="/images/tram-nha-minh-fleet.png" alt="Đội xe Cho Thuê Tự Lái tại Huế" className="block h-auto w-full rounded-[1.6rem]" />
             <span className="absolute bottom-6 left-6 rounded-full bg-white/90 px-3 py-1.5 text-xs font-extrabold text-ink shadow-lg">Đội xe Cho Thuê Tự Lái</span>
           </div>
         </motion.div>
@@ -271,11 +271,42 @@ function Pricing() {
   return <section id="bang-gia" className="scroll-mt-24 bg-ink py-20 text-white sm:py-28"><div className="mx-auto grid max-w-7xl gap-12 px-5 lg:grid-cols-[.9fr_1.1fr] lg:items-center lg:px-8"><div><p className="flex items-center gap-2 text-xs font-extrabold uppercase tracking-[.18em] text-sand"><span className="h-px w-8 bg-sand" /> Đặt xe nhanh</p><h2 className="mt-4 font-heading text-3xl font-bold sm:text-4xl">Chốt lịch xe qua Zalo trong vài bước.</h2><p className="mt-5 max-w-md leading-7 text-slate-300">Bảng giá theo từng xe sẽ được tư vấn theo lịch nhận/trả và tình trạng xe. Gửi yêu cầu cho Cho Thuê Tự Lái để nhận phản hồi nhanh.</p><a href={zaloHref} target="_blank" rel="noreferrer" className="mt-7 inline-flex items-center gap-2 rounded-xl bg-sand px-5 py-3 text-sm font-bold text-ink transition hover:bg-[#f8b576]"><MessageCircle size={17} /> Nhắn Zalo nhận báo giá</a></div><div className="rounded-[1.75rem] border border-white/10 bg-white/10 p-5 backdrop-blur-sm sm:p-7"><div className="grid gap-3 sm:grid-cols-3">{["Ngày nhận", "Ngày trả", "Chọn xe"].map((label, index) => <div key={label} className="rounded-xl bg-white/10 p-4"><span className="block text-[10px] font-bold uppercase tracking-wider text-slate-300">{label}</span><strong className="mt-2 block text-sm text-white">{index === 2 ? "Tất cả dòng xe" : "Chưa chọn ngày"}</strong></div>)}</div><div className="mt-4 rounded-2xl bg-white p-5 text-ink"><div className="flex items-center justify-between border-b border-slate-100 pb-4"><span className="text-sm text-slate-500">Số ngày thuê</span><strong>Đang cập nhật</strong></div><div className="flex items-center justify-between border-b border-slate-100 py-4"><span className="text-sm text-slate-500">Đơn giá</span><strong>Đang cập nhật</strong></div><div className="flex items-center justify-between pt-4"><span className="font-heading text-lg font-bold">Tổng dự kiến</span><strong className="font-heading text-xl text-teal">Liên hệ để báo giá</strong></div></div></div></div></section>;
 }
 
-function Gallery() {
-  return <section id="gallery" className="bg-white py-20 sm:py-28"><div className="mx-auto max-w-7xl px-5 lg:px-8"><div className="grid gap-10 lg:grid-cols-[.85fr_1.15fr] lg:items-end"><SectionTitle eyebrow="Hình ảnh đội xe" title="Những lựa chọn cho hành trình tại Huế." text="Ảnh tổng hợp được dùng từ nội dung bạn vừa cung cấp. Thư viện ảnh giao xe và khách hàng sẽ được bổ sung khi có nguồn." /><div className="rounded-[1.5rem] border border-sand/20 bg-[#fff8ef] p-5 text-sm leading-6 text-slate-600"><Sparkles size={20} className="mb-2 text-sand" /><strong className="block font-heading text-lg text-ink">Nguồn ảnh minh bạch</strong>Poster đội xe do bạn cung cấp; ảnh từng mẫu xe trong danh sách dùng nguồn công khai trên web theo chỉ đạo mới.</div></div><div className="mt-10 grid gap-4 lg:grid-cols-[1.35fr_.65fr]"><div className="overflow-hidden rounded-[1.75rem] bg-slate-100"><img src="/images/tram-nha-minh-fleet.png" alt="Các dòng xe của Cho Thuê Tự Lái" className="h-full min-h-[430px] w-full object-cover object-top" /></div><div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-1"><GalleryCard title="Giao xe" text={gallery.length ? "Đang tải thư viện" : "Đang cập nhật"} icon={MapPin} /><GalleryCard title="Khách hàng" text={reviews.length ? "Đang tải review" : "Đang cập nhật"} icon={HeartHandshake} /><GalleryCard title="Video / Reels" text={videos.length ? "Đang tải video" : "Đang cập nhật"} icon={Star} /></div></div></div></section>;
+function GalleryCarousel({ images, label, emptyMessage }: { images: string[]; label: string; emptyMessage: string }) {
+  if (!images.length) return <div className="grid min-h-[430px] place-items-center rounded-[1.75rem] bg-mist p-8 text-center"><div><Sparkles size={28} className="mx-auto text-teal" /><h3 className="mt-4 font-heading text-xl font-bold text-ink">Chưa có {label.toLowerCase()}</h3><p className="mt-2 text-sm leading-6 text-slate-500">{emptyMessage}</p></div></div>;
+  const hasSlides = images.length > 1;
+  const holdPercent = 100 / images.length - 7;
+  const keyframes = images.map((_, index) => {
+    const start = (index * 100) / images.length;
+    const holdEnd = Math.max(start, start + holdPercent);
+    return `${start}%, ${holdEnd}% { transform: translateX(-${index * 100}%); }`;
+  }).join("\n");
+
+  return <div className="relative min-h-[430px] overflow-hidden rounded-[1.75rem] bg-slate-100" aria-label={label}>
+    {hasSlides && <style>{`@keyframes gallery-carousel { ${keyframes} 100% { transform: translateX(-${images.length * 100}%); } } @media (prefers-reduced-motion: reduce) { .gallery-carousel-track { animation: none !important; } }`}</style>}
+    <div className="gallery-carousel-track flex h-full min-h-[430px]" style={hasSlides ? { animation: `gallery-carousel ${images.length * 5}s ease-in-out infinite` } : undefined}>
+      {images.concat(hasSlides ? images[0] : []).map((image, index) => <img key={`${image}-${index}`} src={image} alt={`${label} ${index + 1}`} className="h-[430px] w-full shrink-0 bg-slate-100 object-contain object-center" />)}
+    </div>
+    {hasSlides && <div className="absolute bottom-5 left-5 rounded-full bg-ink/75 px-3 py-1.5 text-xs font-bold text-white backdrop-blur-sm">Tự động chuyển ảnh</div>}
+  </div>;
 }
 
-function GalleryCard({ title, text, icon: Icon }: { title: string; text: string; icon: typeof MapPin }) { return <div className="rounded-[1.25rem] border border-slate-100 bg-mist p-5"><Icon size={22} className="text-teal" /><h3 className="mt-3 font-heading text-lg font-bold text-ink">{title}</h3><p className="mt-1 text-sm text-slate-500">{text}</p></div>; }
+function ReelsPlayer({ reels }: { reels: string[] }) {
+  const [activeReel, setActiveReel] = useState(0);
+  if (!reels.length) return <div className="grid min-h-[430px] place-items-center rounded-[1.75rem] bg-mist p-8 text-center"><div><Star size={28} className="mx-auto text-teal" /><h3 className="mt-4 font-heading text-xl font-bold text-ink">Chưa có video / Reels</h3><p className="mt-2 text-sm leading-6 text-slate-500">Thêm file .mp4 vào thư mục public/videos/reels.</p></div></div>;
+  return <div className="overflow-hidden rounded-[1.75rem] bg-slate-950"><video key={reels[activeReel]} controls playsInline preload="metadata" className="h-[430px] w-full bg-black object-contain"><source src={reels[activeReel]} type="video/mp4" />Trình duyệt của bạn không hỗ trợ video.</video>{reels.length > 1 && <div className="flex gap-2 overflow-x-auto bg-ink p-3">{reels.map((video, index) => <button key={video} onClick={() => setActiveReel(index)} className={`shrink-0 rounded-lg px-3 py-2 text-xs font-bold transition ${activeReel === index ? "bg-sand text-ink" : "bg-white/10 text-white hover:bg-white/20"}`}>Video {index + 1}</button>)}</div>}</div>;
+}
+
+function Gallery() {
+  const [activePanel, setActivePanel] = useState<"gallery" | "customers" | "reels">("gallery");
+  const galleryImages = gallery as string[];
+  const customerImages = reviews as string[];
+  const reelVideos = videos as string[];
+  const activeContent = activePanel === "gallery" ? <GalleryCarousel images={galleryImages} label="Ảnh đội xe Cho Thuê Tự Lái" emptyMessage="Thêm ảnh vào thư mục public/images/gallery." /> : activePanel === "customers" ? <GalleryCarousel images={customerImages} label="Ảnh khách hàng" emptyMessage="Thêm ảnh vào thư mục public/images/customers." /> : <ReelsPlayer reels={reelVideos} />;
+
+  return <section id="gallery" className="bg-white py-20 sm:py-28"><div className="mx-auto max-w-7xl px-5 lg:px-8"><div className="grid gap-10 lg:grid-cols-[.85fr_1.15fr] lg:items-end"><SectionTitle eyebrow="Hình ảnh đội xe" title="Những lựa chọn cho hành trình tại Huế." text="Thêm ảnh hoặc video vào đúng thư mục là nội dung sẽ tự xuất hiện ở các mục bên cạnh." /><div className="rounded-[1.5rem] border border-sand/20 bg-[#fff8ef] p-5 text-sm leading-6 text-slate-600"><Sparkles size={20} className="mb-2 text-sand" /><strong className="block font-heading text-lg text-ink">Thư viện tự động</strong>Chọn một mục để xem ảnh khách hàng hoặc video Reels. Ảnh luôn được hiển thị đúng tỷ lệ gốc.</div></div><div className="mt-10 grid gap-4 lg:grid-cols-[1.35fr_.65fr]"><div>{activeContent}</div><div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-1"><GalleryCard title="Thư viện ảnh" text={galleryImages.length ? `${galleryImages.length} ảnh đang tự động trình chiếu` : "Thêm ảnh vào thư mục gallery"} icon={MapPin} active={activePanel === "gallery"} onClick={() => setActivePanel("gallery")} /><GalleryCard title="Khách hàng" text={customerImages.length ? `${customerImages.length} ảnh khách hàng đã thêm` : "Thêm ảnh vào thư mục customers"} icon={HeartHandshake} active={activePanel === "customers"} onClick={() => setActivePanel("customers")} /><GalleryCard title="Video / Reels" text={reelVideos.length ? `${reelVideos.length} video .mp4 đã thêm` : "Thêm file .mp4 vào thư mục reels"} icon={Star} active={activePanel === "reels"} onClick={() => setActivePanel("reels")} /></div></div></div></section>;
+}
+
+function GalleryCard({ title, text, icon: Icon, active, onClick }: { title: string; text: string; icon: typeof MapPin; active: boolean; onClick: () => void }) { return <button type="button" onClick={onClick} className={`rounded-[1.25rem] border p-5 text-left transition ${active ? "border-teal bg-teal/5 shadow-soft" : "border-slate-100 bg-mist hover:border-teal/40"}`}><Icon size={22} className="text-teal" /><h3 className="mt-3 font-heading text-lg font-bold text-ink">{title}</h3><p className="mt-1 text-sm text-slate-500">{text}</p></button>; }
 
 function ProcessFaq() {
   const [active, setActive] = useState<number | null>(null);
