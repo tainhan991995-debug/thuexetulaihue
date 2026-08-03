@@ -89,7 +89,7 @@ function Header() {
             <CarFront size={22} strokeWidth={2.3} />
           </span>
           <span>
-            <span className="block font-heading text-base font-extrabold leading-none tracking-tight text-ink">CHO THUÊ TỰ LÁI</span>
+            <span className="block font-heading text-base font-extrabold leading-none tracking-tight text-ink">TRẠM NHÀ MINT</span>
             <span className="mt-1 block text-[10px] font-bold uppercase tracking-[.17em] text-teal">Tự lái · Huế</span>
           </span>
         </button>
