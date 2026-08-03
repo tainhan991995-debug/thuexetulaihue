@@ -1,12 +1,12 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Poppins:wght@500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&display=swap');
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-:root { color-scheme: light; --font-inter: "Inter"; --font-poppins: "Poppins"; }
+:root { color-scheme: light; --font-body: "Be Vietnam Pro"; --font-heading: "Be Vietnam Pro"; }
 * { box-sizing: border-box; }
-body { min-height: 100vh; }
+body { min-height: 100vh; -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility; }
 button, a, input, select { -webkit-tap-highlight-color: transparent; }
 input[type="date"]::-webkit-calendar-picker-indicator { cursor: pointer; opacity: .55; }
 ::selection { background: #F4A261; color: #0D3B66; }

@@ -4,27 +4,27 @@ import "./globals.css";
 const localBusinessSchema = {
   "@context": "https://schema.org",
   "@type": "AutoRental",
-  name: "Cho Thuê Tự Lái",
+  name: "TRẠM NHÀ MINT",
   description: "Cho thuê xe ô tô tự lái ở Huế",
-  telephone: "+84914002141",
+  telephone: "+84986789715",
   areaServed: "Huế, Việt Nam",
   url: "https://thuexetulaihue.vn",
 };
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://thuexetulaihue.vn"),
-  title: "Cho Thuê Tự Lái | Thuê xe tự lái Huế",
-  description: "Cho Thuê Tự Lái cung cấp xe ô tô tự lái tại Huế. Liên hệ nhanh qua Zalo hoặc số điện thoại 091 400 2141.",
+  title: "TRẠM NHÀ MINT | Thuê xe tự lái Huế",
+  description: "TRẠM NHÀ MINT cung cấp xe ô tô tự lái tại Huế. Liên hệ nhanh qua Zalo hoặc số điện thoại 0986 789 715.",
   alternates: { canonical: "/" },
   openGraph: {
     type: "website",
     locale: "vi_VN",
     url: "/",
-    siteName: "Cho Thuê Tự Lái",
-    title: "Cho Thuê Tự Lái | Thuê xe tự lái Huế",
+    siteName: "TRẠM NHÀ MINT",
+    title: "TRẠM NHÀ MINT | Thuê xe tự lái Huế",
     description: "Cho thuê xe ô tô tự lái ở Huế.",
   },
-  twitter: { card: "summary_large_image", title: "Cho Thuê Tự Lái | Thuê xe tự lái Huế" },
+  twitter: { card: "summary_large_image", title: "TRẠM NHÀ MINT | Thuê xe tự lái Huế" },
   robots: { index: true, follow: true },
 };
 

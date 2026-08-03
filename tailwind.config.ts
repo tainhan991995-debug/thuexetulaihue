@@ -11,8 +11,8 @@ const config: Config = {
         teal: "#2A9D8F",
       },
       fontFamily: {
-        heading: ["var(--font-poppins)", "sans-serif"],
-        body: ["var(--font-inter)", "sans-serif"],
+        heading: ["var(--font-heading)", "sans-serif"],
+        body: ["var(--font-body)", "sans-serif"],
       },
       boxShadow: {
         soft: "0 18px 55px rgba(13, 59, 102, .10)",
