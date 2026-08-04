@@ -176,7 +176,7 @@ function Hero({ onSearch }: { onSearch: () => void }) {
             <BadgeCheck size={15} className="text-sand" /> Cho thuê xe ô tô tự lái ở Huế
           </div>
           <h1 className="max-w-[700px] font-heading text-[2rem] font-black leading-[1.08] tracking-[-.035em] text-white sm:text-[3rem] lg:text-[clamp(3.5rem,5vw,4.5rem)]">
-            Thuê xe tự lái Huế,<br />
+            Thuê xe tự lái,<br />
             <span className="text-sand">đặt xe nhanh tại Huế.</span>
           </h1>
           <p className="mt-7 max-w-[640px] text-lg leading-[1.8] text-slate-200 sm:text-xl">
