@@ -33,6 +33,7 @@ import { useMemo, useRef, useState } from "react";
 import cars from "../data/cars.json";
 import faqs from "../data/faq.json";
 import gallery from "../data/gallery.json";
+import { createFaqPageSchema } from "../data/structured-data";
 import videos from "../data/video.json";
 
 type Car = (typeof cars)[number];
@@ -374,5 +375,6 @@ function FloatingActions() { return <div className="fixed bottom-5 right-5 z-40 
 
 export default function Home() {
   const goToCars = () => scrollToId("#danh-sach-xe");
-  return <><Header /><main><Hero onSearch={goToCars} /><WhyUs /><CarsSection /><Pricing /><RentalNotice /><Gallery /><ProcessFaq /><Contact /><LocationMap /></main><Footer /><FloatingActions /></>;
+  const faqSchema = createFaqPageSchema(faqs as { question: string; answer: string }[], "/");
+  return <><Header /><main><Hero onSearch={goToCars} /><WhyUs /><CarsSection /><Pricing /><RentalNotice /><Gallery /><ProcessFaq /><Contact /><LocationMap /></main><Footer /><FloatingActions /><script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} /></>;
 }
