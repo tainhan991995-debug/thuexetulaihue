@@ -22,7 +22,7 @@ export const seoPages: SeoPage[] = [
     description: "Thuê xe tự lái Huế với lựa chọn xe điện VinFast và xe xăng. Xem đội xe, giá theo ngày và liên hệ TRẠM NHÀ MINT để xác nhận lịch.",
     h1: "Thuê xe tự lái Huế cho hành trình chủ động của bạn",
     lead: "Trang thông tin dành cho khách cần chọn xe theo lịch riêng tại Huế, xem dữ liệu đội xe hiện có và nhận xác nhận qua Hotline hoặc Zalo.",
-    image: "/images/tram-nha-minh-fleet.png",
+    image: "/images/tram-nha-minh-fleet.webp",
     imageAlt: "Đội xe tự lái TRẠM NHÀ MINT tại Huế gồm VinFast và Honda City",
     sections: [
       { heading: "Chủ động lịch trình khi đi lại tại Huế", paragraphs: [
@@ -208,7 +208,7 @@ export const seoPages: SeoPage[] = [
     description: "Xem bảng giá thuê xe tự lái Huế theo ngày của TRẠM NHÀ MINT. Mức giá từng xe là tham khảo và được xác nhận theo lịch thực tế.",
     h1: "Bảng giá thuê xe tự lái Huế theo dữ liệu đội xe",
     lead: "Tìm hiểu cách đọc giá xe theo ngày, so sánh các mẫu đang hiển thị và chuẩn bị thông tin để nhận báo giá xác nhận.",
-    image: "/images/tram-nha-minh-fleet.png",
+    image: "/images/tram-nha-minh-fleet.webp",
     imageAlt: "Đội xe TRẠM NHÀ MINT dùng minh hoạ cho bảng giá thuê xe tự lái Huế",
     sections: [
       { heading: "Giá hiển thị trên website có ý nghĩa gì", paragraphs: [

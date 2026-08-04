@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { AnimatePresence, motion } from "framer-motion";
 import {
   ArrowRight,
@@ -92,7 +93,7 @@ function SectionTitle({ eyebrow, title, text, centered = false }: { eyebrow: str
 }
 
 function ZaloLogo({ size = 20 }: { size?: number }) {
-  return <img src="https://upload.wikimedia.org/wikipedia/commons/9/91/Icon_of_Zalo.svg" width={size} height={size} alt="" aria-hidden="true" className="rounded" />;
+  return <Image src="https://upload.wikimedia.org/wikipedia/commons/9/91/Icon_of_Zalo.svg" width={size} height={size} alt="" aria-hidden="true" className="rounded" />;
 }
 
 function Header() {
@@ -103,7 +104,7 @@ function Header() {
       <div className="mx-auto flex h-[82px] max-w-7xl items-center justify-between px-5 md:h-[94px] lg:px-8">
         <button onClick={() => scrollToId("#trang-chu")} className="group flex items-center gap-3.5 text-left" aria-label="Về trang chủ">
           <span className="grid h-12 w-12 place-items-center overflow-hidden rounded-2xl bg-white shadow-float transition-transform group-hover:-rotate-3 md:h-[60px] md:w-[60px]">
-            <img src="/images/logo.png" alt="Logo TRẠM NHÀ MINT" className="h-full w-full object-contain" />
+            <Image src="/images/logo.webp" width={48} height={48} alt="Logo TRẠM NHÀ MINT" className="h-full w-full object-contain" />
           </span>
           <span>
             <span className="block font-heading text-lg font-extrabold leading-none tracking-[.015em] text-ink md:text-[30px]">{brandName}</span>
@@ -191,7 +192,7 @@ function Hero({ onSearch }: { onSearch: () => void }) {
         <motion.div initial={{ opacity: 0, scale: 0.96 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 0.7, delay: 0.08 }} className="relative mx-auto w-full max-w-[720px] lg:ml-auto lg:mr-0">
           <div className="absolute -inset-4 rounded-[2.5rem] bg-gradient-to-br from-sand/50 via-transparent to-teal/40 blur-2xl" />
           <div className="relative overflow-hidden rounded-[2rem] border border-white/30 bg-white/10 p-2 shadow-[0_35px_80px_rgba(0,0,0,.3)] backdrop-blur-sm">
-            <img src="/images/tram-nha-minh-fleet.png" alt={`Đội xe thuê xe tự lái Huế của ${brandName}: VinFast, xe điện và xe xăng`} className="block h-auto w-full rounded-[1.6rem]" />
+            <Image src="/images/tram-nha-minh-fleet.webp" width={1299} height={878} priority fetchPriority="high" sizes="(min-width: 1024px) 50vw, 100vw" alt={`Đội xe thuê xe tự lái Huế của ${brandName}: VinFast, xe điện và xe xăng`} className="block h-auto w-full rounded-[1.6rem]" />
             <span className="absolute bottom-6 left-6 rounded-full bg-white/90 px-3 py-1.5 text-xs font-extrabold text-ink shadow-lg">Đội xe {brandName}</span>
           </div>
         </motion.div>
@@ -243,7 +244,7 @@ function WhyUs() {
 }
 
 function CarImage({ car, className = "" }: { car: Car; className?: string }) {
-  return <img src={car.image} alt={`${car.name} cho thuê tại Huế - ${car.seats}, ${car.fuel.toLowerCase()}`} className={`h-full w-full object-contain ${className}`} style={{ objectPosition: car.position }} />;
+  return <Image src={car.image} fill sizes="(min-width: 1024px) 25vw, (min-width: 640px) 50vw, 100vw" alt={`${car.name} cho thuê tại Huế - ${car.seats}, ${car.fuel.toLowerCase()}`} className={`object-contain ${className}`} style={{ objectPosition: car.position }} />;
 }
 
 function CarsSection() {
@@ -295,7 +296,7 @@ function Pricing() {
 }
 
 function RentalNotice() {
-  return <section className="bg-white py-20 sm:py-28"><div className="mx-auto grid max-w-7xl gap-10 px-5 lg:grid-cols-[.72fr_1.28fr] lg:items-center lg:px-8"><div><SectionTitle eyebrow="Thông tin cần biết" title="Lưu ý khi thuê xe." text="Vui lòng xem kỹ các lưu ý dưới đây trước khi nhận xe để chuyến đi diễn ra thuận lợi." /><a href="/images/luuy.jpg" target="_blank" rel="noreferrer" className="mt-6 inline-flex items-center gap-2 text-sm font-bold text-teal hover:text-ink">Mở ảnh lưu ý cỡ lớn <ArrowRight size={17} /></a></div><div className="overflow-hidden rounded-[1.75rem] border border-slate-100 bg-mist p-2 shadow-soft"><img src="/images/luuy.jpg" alt="Lưu ý khi thuê xe tự lái tại Huế của TRẠM NHÀ MINT" loading="lazy" className="h-auto w-full rounded-[1.35rem] object-contain" /></div></div></section>;
+  return <section className="bg-white py-20 sm:py-28"><div className="mx-auto grid max-w-7xl gap-10 px-5 lg:grid-cols-[.72fr_1.28fr] lg:items-center lg:px-8"><div><SectionTitle eyebrow="Thông tin cần biết" title="Lưu ý khi thuê xe." text="Vui lòng xem kỹ các lưu ý dưới đây trước khi nhận xe để chuyến đi diễn ra thuận lợi." /><a href="/images/luuy.jpg" target="_blank" rel="noreferrer" className="mt-6 inline-flex items-center gap-2 text-sm font-bold text-teal hover:text-ink">Mở ảnh lưu ý cỡ lớn <ArrowRight size={17} /></a></div><div className="overflow-hidden rounded-[1.75rem] border border-slate-100 bg-mist p-2 shadow-soft"><Image src="/images/luuy.webp" width={854} height={1175} sizes="(min-width: 1024px) 55vw, 100vw" alt="Lưu ý khi thuê xe tự lái tại Huế của TRẠM NHÀ MINT" loading="lazy" className="h-auto w-full rounded-[1.35rem] object-contain" /></div></div></section>;
 }
 
 function GalleryCarousel({ images, label, emptyMessage }: { images: string[]; label: string; emptyMessage: string }) {
@@ -323,7 +324,7 @@ function GalleryCarousel({ images, label, emptyMessage }: { images: string[]; la
   };
   if (!images.length) return <div className="grid min-h-[430px] place-items-center rounded-[1.75rem] bg-mist p-8 text-center"><div><Sparkles size={28} className="mx-auto text-teal" /><h3 className="mt-4 font-heading text-xl font-bold text-ink">Chưa có {label.toLowerCase()}</h3><p className="mt-2 text-sm leading-6 text-slate-500">{emptyMessage}</p></div></div>;
   return <div className="group relative min-h-[430px] overflow-hidden rounded-[1.75rem] bg-slate-100" aria-label={label} onTouchStart={(event) => { touchStartX.current = event.touches[0].clientX; }} onTouchEnd={handleTouchEnd}>
-    <AnimatePresence mode="wait" initial={false}><motion.img key={images[activeIndex]} src={images[activeIndex]} alt={`${label} ${activeIndex + 1}`} initial={{ opacity: 0, scale: 0.99 }} animate={{ opacity: 1, scale: 1 }} exit={{ opacity: 0, scale: 1.01 }} transition={{ duration: 0.38, ease: "easeInOut" }} className="absolute inset-0 h-[430px] w-full bg-slate-100 object-contain object-center" /></AnimatePresence>
+    <AnimatePresence mode="wait" initial={false}><motion.div key={images[activeIndex]} initial={{ opacity: 0, scale: 0.99 }} animate={{ opacity: 1, scale: 1 }} exit={{ opacity: 0, scale: 1.01 }} transition={{ duration: 0.38, ease: "easeInOut" }} className="absolute inset-0"><Image src={images[activeIndex]} fill sizes="(min-width: 1024px) 60vw, 100vw" alt={`${label} ${activeIndex + 1}`} loading="lazy" className="bg-slate-100 object-contain object-center" /></motion.div></AnimatePresence>
     {hasSlides && <><button type="button" onClick={() => showSlide(activeIndex - 1)} aria-label="Ảnh trước" className="absolute left-3 top-1/2 z-10 grid h-10 w-10 -translate-y-1/2 place-items-center rounded-full bg-white/75 text-ink shadow-md backdrop-blur-md transition hover:bg-teal hover:text-white lg:opacity-0 lg:group-hover:opacity-100"><ChevronLeft size={21} strokeWidth={2.5} /></button><button type="button" onClick={() => showSlide(activeIndex + 1)} aria-label="Ảnh tiếp theo" className="absolute right-3 top-1/2 z-10 grid h-10 w-10 -translate-y-1/2 place-items-center rounded-full bg-white/75 text-ink shadow-md backdrop-blur-md transition hover:bg-teal hover:text-white lg:opacity-0 lg:group-hover:opacity-100"><ChevronRight size={21} strokeWidth={2.5} /></button><div className="absolute bottom-4 left-1/2 z-10 flex -translate-x-1/2 items-center gap-2 rounded-full bg-white/65 px-3 py-2 shadow-sm backdrop-blur-md" aria-label="Chọn ảnh">{images.map((image, index) => <button key={image} type="button" onClick={() => showSlide(index)} aria-label={`Xem ảnh ${index + 1}`} aria-current={activeIndex === index ? "true" : undefined} className={`rounded-full bg-ink transition-all duration-300 ${activeIndex === index ? "h-2.5 w-2.5 bg-teal" : "h-2 w-2 opacity-45 hover:opacity-80"}`} />)}</div></>}
   </div>;
 }
@@ -378,7 +379,7 @@ function InternalLinks() {
 }
 
 function Footer() {
-  return <footer className="border-t border-slate-100 bg-white"><div className="mx-auto grid max-w-7xl gap-10 px-5 py-12 sm:grid-cols-2 lg:grid-cols-4 lg:px-8"><div><div className="flex items-center gap-3 font-heading font-extrabold text-ink"><span className="grid h-11 w-11 place-items-center overflow-hidden rounded-xl bg-white shadow-soft"><img src="/images/logo.png" alt="Logo TRẠM NHÀ MINT" className="h-full w-full object-contain" /></span> {brandName}</div><p className="mt-4 text-sm leading-6 text-slate-500">Thuê xe tự lái Huế với xe điện và xe xăng cho nhu cầu thuê xe ngắn hạn hoặc theo ngày.</p></div><div><h3 className="font-heading font-bold text-ink">Điều hướng</h3><div className="mt-4 grid gap-2">{navigation.slice(0, 4).map(([label, href]) => <button key={href} onClick={() => scrollToId(href)} className="text-left text-sm text-slate-500 hover:text-teal">{label}</button>)}</div></div><div><h3 className="font-heading font-bold text-ink">Liên hệ</h3><a href={hotlineHref} className="mt-4 flex items-center gap-2 text-sm font-bold text-teal"><Phone size={18} /> {hotline}</a><a href={zaloHref} target="_blank" rel="noreferrer" className="mt-3 flex items-center gap-2 text-sm font-bold text-[#0068FF]"><ZaloLogo size={18} /> Zalo</a><a href={facebookHref} target="_blank" rel="noreferrer" className="mt-3 flex items-center gap-2 text-sm font-bold text-[#1877F2]"><Facebook size={18} /> Facebook {brandName}</a></div><div><h3 className="font-heading font-bold text-ink">Thông tin website</h3><p className="mt-4 text-sm leading-6 text-slate-500">Thông tin xe, giá và điều khoản được cập nhật theo nguồn cung cấp.</p></div></div><div className="border-t border-slate-100 px-5 py-5 text-center text-xs text-slate-400">© {new Date().getFullYear()} {brandName}. Thiết kế cho thuê xe tự lái Huế.</div></footer>;
+  return <footer className="border-t border-slate-100 bg-white"><div className="mx-auto grid max-w-7xl gap-10 px-5 py-12 sm:grid-cols-2 lg:grid-cols-4 lg:px-8"><div><div className="flex items-center gap-3 font-heading font-extrabold text-ink"><span className="grid h-11 w-11 place-items-center overflow-hidden rounded-xl bg-white shadow-soft"><Image src="/images/logo.webp" width={44} height={44} alt="Logo TRẠM NHÀ MINT" className="h-full w-full object-contain" /></span> {brandName}</div><p className="mt-4 text-sm leading-6 text-slate-500">Thuê xe tự lái Huế với xe điện và xe xăng cho nhu cầu thuê xe ngắn hạn hoặc theo ngày.</p></div><div><h3 className="font-heading font-bold text-ink">Điều hướng</h3><div className="mt-4 grid gap-2">{navigation.slice(0, 4).map(([label, href]) => <button key={href} onClick={() => scrollToId(href)} className="text-left text-sm text-slate-500 hover:text-teal">{label}</button>)}</div></div><div><h3 className="font-heading font-bold text-ink">Liên hệ</h3><a href={hotlineHref} className="mt-4 flex items-center gap-2 text-sm font-bold text-teal"><Phone size={18} /> {hotline}</a><a href={zaloHref} target="_blank" rel="noreferrer" className="mt-3 flex items-center gap-2 text-sm font-bold text-[#0068FF]"><ZaloLogo size={18} /> Zalo</a><a href={facebookHref} target="_blank" rel="noreferrer" className="mt-3 flex items-center gap-2 text-sm font-bold text-[#1877F2]"><Facebook size={18} /> Facebook {brandName}</a></div><div><h3 className="font-heading font-bold text-ink">Thông tin website</h3><p className="mt-4 text-sm leading-6 text-slate-500">Thông tin xe, giá và điều khoản được cập nhật theo nguồn cung cấp.</p></div></div><div className="border-t border-slate-100 px-5 py-5 text-center text-xs text-slate-400">© {new Date().getFullYear()} {brandName}. Thiết kế cho thuê xe tự lái Huế.</div></footer>;
 }
 
 function FloatingActions() { return <div className="fixed bottom-5 right-5 z-40 flex flex-col gap-2"><a href={zaloHref} target="_blank" rel="noreferrer" aria-label="Nhắn Zalo thuê xe tự lái Huế" className="grid h-11 w-11 place-items-center rounded-full bg-teal text-white shadow-float transition hover:scale-105"><MessageCircle size={19} /></a><a href="#trang-chu" aria-label="Lên đầu trang" className="grid h-11 w-11 place-items-center rounded-full bg-sand text-ink shadow-float transition hover:scale-105"><RotateCcw size={19} /></a></div>; }

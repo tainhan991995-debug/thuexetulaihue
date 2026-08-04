@@ -22,11 +22,11 @@ export type BlogPost = {
 };
 
 const imageSet = [
-  { image: "/images/tram-nha-minh-fleet.png", imageAlt: "Đội xe TRẠM NHÀ MINT tại Huế" },
+  { image: "/images/tram-nha-minh-fleet.webp", imageAlt: "Đội xe TRẠM NHÀ MINT tại Huế" },
   { image: "/images/gallery/1.jpg", imageAlt: "Xe trong thư viện ảnh đội xe TRẠM NHÀ MINT" },
   { image: "/images/gallery/2.jpg", imageAlt: "Hình ảnh xe tự lái tại Huế" },
   { image: "/images/gallery/3.jpg", imageAlt: "Xe VinFast trong thư viện TRẠM NHÀ MINT" },
-  { image: "/images/luuy.jpg", imageAlt: "Lưu ý trước khi thuê xe tự lái tại Huế" },
+  { image: "/images/luuy.webp", imageAlt: "Lưu ý trước khi thuê xe tự lái tại Huế" },
 ];
 
 const links = ["thue-xe-tu-lai-hue", "thue-xe-vinfast-hue", "thue-xe-dien-hue", "thue-xe-san-bay-phu-bai", "thue-xe-4-cho-hue", "thue-xe-7-cho-hue", "bang-gia", "faq", "lien-he"];

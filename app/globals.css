@@ -1,10 +1,8 @@
-@import url('https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&display=swap');
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-:root { color-scheme: light; --font-body: "Be Vietnam Pro"; --font-heading: "Be Vietnam Pro"; }
+:root { color-scheme: light; --font-body: var(--font-be-vietnam-pro), "Be Vietnam Pro", sans-serif; --font-heading: var(--font-be-vietnam-pro), "Be Vietnam Pro", sans-serif; }
 * { box-sizing: border-box; }
 body { min-height: 100vh; -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility; }
 button, a, input, select { -webkit-tap-highlight-color: transparent; }
