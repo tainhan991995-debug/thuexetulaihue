@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { AnimatePresence, motion } from "framer-motion";
 import {
   ArrowRight,
@@ -31,8 +32,11 @@ import {
 import * as React from "react";
 import { useMemo, useRef, useState } from "react";
 import cars from "../data/cars.json";
+import { BookingCta } from "../components/booking-cta";
+import { blogPosts } from "../data/blog-posts";
 import faqs from "../data/faq.json";
 import gallery from "../data/gallery.json";
+import { seoPages } from "../data/seo-pages";
 import { createFaqPageSchema } from "../data/structured-data";
 import videos from "../data/video.json";
 
@@ -367,6 +371,12 @@ function LocationMap() {
   return <section id="ban-do" className="bg-mist py-20 sm:py-28"><div className="mx-auto grid max-w-7xl gap-10 px-5 lg:grid-cols-[.72fr_1.28fr] lg:items-center lg:px-8"><div><SectionTitle eyebrow="Vị trí Trạm Nhà Mint" title="Dễ dàng tìm đường đến điểm hẹn tại Huế." text="Xem vị trí doanh nghiệp trên Google Maps để mở chỉ đường thuận tiện trước khi nhận xe." /><a href={mapsSearchHref} target="_blank" rel="noreferrer" className="mt-7 inline-flex items-center gap-2 rounded-xl bg-ink px-5 py-3 text-sm font-bold text-white transition hover:bg-teal"><MapPin size={18} /> Mở chỉ đường trên Google Maps <ArrowRight size={17} /></a></div><div className="overflow-hidden rounded-[1.75rem] border border-slate-200 bg-white p-2 shadow-soft"><iframe src={mapsEmbedSrc} title="Bản đồ Google Maps Trạm Nhà Mint tại Huế" loading="lazy" referrerPolicy="no-referrer-when-downgrade" className="h-[360px] w-full rounded-[1.35rem] border-0" /></div></div></section>;
 }
 
+function InternalLinks() {
+  const serviceLinks = seoPages.slice(0, 5);
+  const blogLinks = blogPosts.slice(0, 5);
+  return <section className="bg-white py-20 sm:py-28"><div className="mx-auto max-w-7xl px-5 lg:px-8"><SectionTitle eyebrow="Khám phá thêm" title="Chọn dịch vụ và đọc kinh nghiệm trước khi đặt xe." text="Các liên kết dưới đây giúp bạn đi thẳng tới nhóm xe, giá tham khảo và những bài hướng dẫn liên quan." /><div className="mt-10 grid gap-8 lg:grid-cols-2"><div><h3 className="font-heading text-xl font-bold text-ink">Dịch vụ thuê xe tại Huế</h3><div className="mt-4 grid gap-3 sm:grid-cols-2">{serviceLinks.map((service) => <Link key={service.slug} href={`/${service.slug}`} className="group rounded-2xl border border-slate-100 bg-mist p-5 text-sm font-bold text-ink transition hover:border-teal hover:bg-teal hover:text-white">{service.label}<ArrowRight size={17} className="mt-4 transition group-hover:translate-x-1" /></Link>)}</div></div><div><h3 className="font-heading text-xl font-bold text-ink">Kinh nghiệm thuê xe</h3><div className="mt-4 grid gap-3">{blogLinks.map((post) => <Link key={post.slug} href={`/blog/${post.slug}`} className="group flex items-center justify-between gap-4 rounded-2xl border border-slate-100 bg-mist px-5 py-4 text-sm font-bold leading-5 text-ink transition hover:border-teal hover:text-teal"><span>{post.title}</span><ArrowRight size={17} className="shrink-0 transition group-hover:translate-x-1" /></Link>)}</div></div></div></div></section>;
+}
+
 function Footer() {
   return <footer className="border-t border-slate-100 bg-white"><div className="mx-auto grid max-w-7xl gap-10 px-5 py-12 sm:grid-cols-2 lg:grid-cols-4 lg:px-8"><div><div className="flex items-center gap-3 font-heading font-extrabold text-ink"><span className="grid h-11 w-11 place-items-center overflow-hidden rounded-xl bg-white shadow-soft"><img src="/images/logo.png" alt="Logo TRẠM NHÀ MINT" className="h-full w-full object-contain" /></span> {brandName}</div><p className="mt-4 text-sm leading-6 text-slate-500">Thuê xe tự lái Huế với xe điện và xe xăng cho nhu cầu thuê xe ngắn hạn hoặc theo ngày.</p></div><div><h3 className="font-heading font-bold text-ink">Điều hướng</h3><div className="mt-4 grid gap-2">{navigation.slice(0, 4).map(([label, href]) => <button key={href} onClick={() => scrollToId(href)} className="text-left text-sm text-slate-500 hover:text-teal">{label}</button>)}</div></div><div><h3 className="font-heading font-bold text-ink">Liên hệ</h3><a href={hotlineHref} className="mt-4 flex items-center gap-2 text-sm font-bold text-teal"><Phone size={18} /> {hotline}</a><a href={zaloHref} target="_blank" rel="noreferrer" className="mt-3 flex items-center gap-2 text-sm font-bold text-[#0068FF]"><ZaloLogo size={18} /> Zalo</a><a href={facebookHref} target="_blank" rel="noreferrer" className="mt-3 flex items-center gap-2 text-sm font-bold text-[#1877F2]"><Facebook size={18} /> Facebook {brandName}</a></div><div><h3 className="font-heading font-bold text-ink">Thông tin website</h3><p className="mt-4 text-sm leading-6 text-slate-500">Thông tin xe, giá và điều khoản được cập nhật theo nguồn cung cấp.</p></div></div><div className="border-t border-slate-100 px-5 py-5 text-center text-xs text-slate-400">© {new Date().getFullYear()} {brandName}. Thiết kế cho thuê xe tự lái Huế.</div></footer>;
 }
@@ -376,5 +386,5 @@ function FloatingActions() { return <div className="fixed bottom-5 right-5 z-40 
 export default function Home() {
   const goToCars = () => scrollToId("#danh-sach-xe");
   const faqSchema = createFaqPageSchema(faqs as { question: string; answer: string }[], "/");
-  return <><Header /><main><Hero onSearch={goToCars} /><WhyUs /><CarsSection /><Pricing /><RentalNotice /><Gallery /><ProcessFaq /><Contact /><LocationMap /></main><Footer /><FloatingActions /><script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} /></>;
+  return <><Header /><main><Hero onSearch={goToCars} /><WhyUs /><CarsSection /><div className="bg-white px-5 py-6 lg:px-8"><div className="mx-auto max-w-7xl"><BookingCta placement="middle" /></div></div><Pricing /><RentalNotice /><Gallery /><ProcessFaq /><Contact /><LocationMap /><InternalLinks /><div className="bg-mist px-5 pb-20 lg:px-8"><div className="mx-auto max-w-7xl"><BookingCta placement="end" /></div></div></main><Footer /><FloatingActions /><script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} /></>;
 }
