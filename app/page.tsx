@@ -48,8 +48,10 @@ const hotline = "0986 789 715";
 const hotlineHref = "tel:0986789715";
 const facebookHref = "https://www.facebook.com/thuexetulaihue.vn/";
 const zaloHref = "https://zalo.me/0986789715";
-const mapsSearchHref = "https://www.google.com/maps/search/?api=1&query=Tr%E1%BA%A1m%20Nh%C3%A0%20Mint%20-%20Cho%20thu%C3%AA%20xe%20%C3%B4%20t%C3%B4%20t%E1%BB%B1%20l%C3%A1i%2C%20Hu%E1%BA%BF";
-const mapsEmbedSrc = "https://www.google.com/maps?q=Tr%E1%BA%A1m%20Nh%C3%A0%20Mint%20-%20Cho%20thu%C3%AA%20xe%20%C3%B4%20t%C3%B4%20t%E1%BB%B1%20l%C3%A1i%2C%20Hu%E1%BA%BF&output=embed";
+const mapsSearchHref =
+"https://www.google.com/maps?q=Tr%E1%BA%A1m+nh%C3%A0+Mint+-+Cho+thu%C3%AA+xe+%C3%B4+t%C3%B4+t%E1%BB%B1+l%C3%A1i+t%E1%BA%A1i+Hu%E1%BA%BF,+6/5+T%C3%B4n+Quang+Phi%E1%BB%87t,+An+C%E1%BB%B1u,+Hu%E1%BA%BF&ftid=0x3141a169ae726069:0x1262216cc774ec0b";
+const mapsEmbedSrc =
+"https://www.google.com/maps?q=Tr%E1%BA%A1m+nh%C3%A0+Mint+-+Cho+thu%C3%AA+xe+%C3%B4+t%C3%B4+t%E1%BB%B1+l%C3%A1i+t%E1%BA%A1i+Hu%E1%BA%BF,+6/5+T%C3%B4n+Quang+Phi%E1%BB%87t,+An+C%E1%BB%B1u,+Hu%E1%BA%BF&output=embed";
 
 
 const navigation = [
