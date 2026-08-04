@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import "./globals.css";
 import faqs from "../data/faq.json";
 
+const siteUrl = "https://thuexetulaihue.vn";
+
 const localBusinessSchema = {
   "@context": "https://schema.org",
   "@type": "AutoRental",
@@ -11,7 +13,7 @@ const localBusinessSchema = {
   areaServed: { "@type": "City", name: "Huế" },
   address: { "@type": "PostalAddress", addressLocality: "Huế", addressCountry: "VN" },
   sameAs: ["https://www.facebook.com/huechothuexetulai"],
-  url: "https://www.thuexetulaihue.vn",
+  url: siteUrl,
 };
 
 const faqSchema = {
@@ -28,14 +30,14 @@ const faqSchema = {
 };
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://www.thuexetulaihue.vn"),
+  metadataBase: new URL(siteUrl),
   title: "Thuê xe tự lái Huế | VinFast, xe điện, 4–7 chỗ",
   description: "Thuê xe tự lái Huế với xe VinFast, xe điện, xe 4 chỗ và 7 chỗ. Thuê xe theo ngày, giao xe tận nơi Huế và xác nhận lịch tại sân bay Phú Bài.",
-  alternates: { canonical: "/" },
+  alternates: { canonical: siteUrl },
   openGraph: {
     type: "website",
     locale: "vi_VN",
-    url: "/",
+    url: siteUrl,
     siteName: "TRẠM NHÀ MINT - Thuê xe tự lái Huế",
     title: "Thuê xe tự lái Huế | VinFast, xe điện, 4–7 chỗ",
     description: "Thuê xe theo ngày tại Huế với xe VinFast, xe điện cùng lựa chọn 4 chỗ và 7 chỗ.",

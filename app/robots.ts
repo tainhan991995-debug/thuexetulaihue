@@ -1,5 +1,5 @@
 import type { MetadataRoute } from "next";
 
 export default function robots(): MetadataRoute.Robots {
-  return { rules: { userAgent: "*", allow: "/" }, sitemap: "https://www.thuexetulaihue.vn/sitemap.xml" };
+  return { rules: { userAgent: "*", allow: "/" }, sitemap: "https://thuexetulaihue.vn/sitemap.xml" };
 }
