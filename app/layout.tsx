@@ -11,7 +11,7 @@ const localBusinessSchema = {
   areaServed: { "@type": "City", name: "Huế" },
   address: { "@type": "PostalAddress", addressLocality: "Huế", addressCountry: "VN" },
   sameAs: ["https://www.facebook.com/huechothuexetulai"],
-  url: "https://thuexetulaihue.vn",
+  url: "https://www.thuexetulaihue.vn",
 };
 
 const faqSchema = {
@@ -28,7 +28,7 @@ const faqSchema = {
 };
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://thuexetulaihue.vn"),
+  metadataBase: new URL("https://www.thuexetulaihue.vn"),
   title: "Thuê xe tự lái Huế | VinFast, xe điện, 4–7 chỗ",
   description: "Thuê xe tự lái Huế với xe VinFast, xe điện, xe 4 chỗ và 7 chỗ. Thuê xe theo ngày, giao xe tận nơi Huế và xác nhận lịch tại sân bay Phú Bài.",
   alternates: { canonical: "/" },
