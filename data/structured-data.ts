@@ -38,6 +38,7 @@ export const sitewideBusinessSchema = {
       logo: { "@id": logoId },
       url: siteUrl,
       telephone: "+84986789715",
+      priceRange: "550.000đ–1.800.000đ/ngày",
       description: "Thuê xe tự lái theo ngày tại Huế với xe điện VinFast và xe xăng; liên hệ để xác nhận lịch xe và phương án giao nhận.",
       address: { "@type": "PostalAddress", addressLocality: "Huế", addressCountry: "VN" },
       areaServed: { "@type": "City", name: "Huế" },
