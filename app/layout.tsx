@@ -41,11 +41,13 @@ export const metadata: Metadata = {
     siteName: "TRẠM NHÀ MINT - Thuê xe tự lái Huế",
     title: "Thuê xe tự lái Huế | VinFast, xe điện, 4–7 chỗ",
     description: "Thuê xe theo ngày tại Huế với xe VinFast, xe điện cùng lựa chọn 4 chỗ và 7 chỗ.",
+    images: [{ url: "/og.png", width: 1200, height: 630, alt: "TRẠM NHÀ MINT - Thuê xe tự lái Huế" }],
   },
   twitter: {
     card: "summary_large_image",
     title: "Thuê xe tự lái Huế | TRẠM NHÀ MINT",
     description: "Thuê xe VinFast, xe điện, xe 4 chỗ và 7 chỗ theo ngày tại Huế.",
+    images: ["/og.png"],
   },
   robots: { index: true, follow: true },
 };
