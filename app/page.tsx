@@ -46,7 +46,7 @@ type Car = (typeof cars)[number];
 const brandName = "TRẠM NHÀ MINT";
 const hotline = "0986 789 715";
 const hotlineHref = "tel:0986789715";
-const facebookHref = "https://www.facebook.com/huechothuexetulai";
+const facebookHref = "https://www.facebook.com/thuexetulaihue.vn/";
 const zaloHref = "https://zalo.me/0986789715";
 const mapsSearchHref = "https://www.google.com/maps/search/?api=1&query=Tr%E1%BA%A1m%20Nh%C3%A0%20Mint%20-%20Cho%20thu%C3%AA%20xe%20%C3%B4%20t%C3%B4%20t%E1%BB%B1%20l%C3%A1i%2C%20Hu%E1%BA%BF";
 const mapsEmbedSrc = "https://www.google.com/maps?q=Tr%E1%BA%A1m%20Nh%C3%A0%20Mint%20-%20Cho%20thu%C3%AA%20xe%20%C3%B4%20t%C3%B4%20t%E1%BB%B1%20l%C3%A1i%2C%20Hu%E1%BA%BF&output=embed";
