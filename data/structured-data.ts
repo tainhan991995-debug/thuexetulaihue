@@ -20,7 +20,7 @@ export const sitewideBusinessSchema = {
       url: siteUrl,
       logo: { "@id": logoId },
       image: { "@id": primaryImageId },
-      description: "Dịch vụ thuê xe tự lái tại Huế với xe VinFast, xe điện, xe 4 chỗ và 7 chỗ theo ngày.",
+      description: "Dịch vụ thuê xe tự lái tại Huế với xe VinFast, xe điện, xe xăng cùng lựa chọn 4–7 chỗ theo ngày.",
       sameAs: ["https://www.facebook.com/huechothuexetulai", "https://zalo.me/0986789715"],
       contactPoint: {
         "@type": "ContactPoint",
@@ -64,8 +64,8 @@ export const sitewideBusinessSchema = {
     {
       "@type": "ImageObject",
       "@id": logoId,
-      url: `${siteUrl}/images/logo.png`,
-      contentUrl: `${siteUrl}/images/logo.png`,
+      url: `${siteUrl}/images/logo.jpg`,
+      contentUrl: `${siteUrl}/images/logo.jpg`,
       caption: "Logo TRẠM NHÀ MINT",
     },
     {
