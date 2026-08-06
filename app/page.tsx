@@ -192,7 +192,7 @@ function Hero({ onSearch }: { onSearch: () => void }) {
           </div>
         </div>
 
-        <div className="relative mx-auto w-full max-w-[720px] lg:ml-auto lg:mr-0">
+        <div className="relative mx-auto w-[70%] max-w-[720px] sm:w-full lg:ml-auto lg:mr-0">
           <div className="absolute -inset-4 rounded-[2.5rem] bg-gradient-to-br from-sand/50 via-transparent to-teal/40 blur-2xl" />
           <div className="relative overflow-hidden rounded-[2rem] border border-white/30 bg-white/10 p-2 shadow-[0_35px_80px_rgba(0,0,0,.3)] backdrop-blur-sm">
             <picture>
