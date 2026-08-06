@@ -52,7 +52,7 @@ const mapsSearchHref =
 "https://www.google.com/maps?q=Tr%E1%BA%A1m+nh%C3%A0+Mint+-+Cho+thu%C3%AA+xe+%C3%B4+t%C3%B4+t%E1%BB%B1+l%C3%A1i+t%E1%BA%A1i+Hu%E1%BA%BF,+6/5+T%C3%B4n+Quang+Phi%E1%BB%87t,+An+C%E1%BB%B1u,+Hu%E1%BA%BF&ftid=0x3141a169ae726069:0x1262216cc774ec0b";
 const mapsEmbedSrc =
 "https://www.google.com/maps?q=Tr%E1%BA%A1m+nh%C3%A0+Mint+-+Cho+thu%C3%AA+xe+%C3%B4+t%C3%B4+t%E1%BB%B1+l%C3%A1i+t%E1%BA%A1i+Hu%E1%BA%BF,+6/5+T%C3%B4n+Quang+Phi%E1%BB%87t,+An+C%E1%BB%B1u,+Hu%E1%BA%BF&output=embed";
-const heroSizes = "(max-width: 1023px) 320px, (min-width: 1280px) 640px, 50vw";
+const heroSizes = "(max-width: 1023px) 240px, (min-width: 1280px) 640px, 50vw";
 const heroAvifSrcSet = "/images/tram-nha-minh-fleet-480.avif 480w, /images/tram-nha-minh-fleet-768.avif 768w, /images/tram-nha-minh-fleet.avif 1299w";
 const heroWebpSrcSet = "/images/tram-nha-minh-fleet-480.webp 480w, /images/tram-nha-minh-fleet-640.webp 640w, /images/tram-nha-minh-fleet-768.webp 768w, /images/tram-nha-minh-fleet.webp 1299w";
 
