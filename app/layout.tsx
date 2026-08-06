@@ -7,7 +7,7 @@ import { siteUrl, sitewideBusinessSchema } from "../data/structured-data";
 const beVietnamPro = Be_Vietnam_Pro({
   subsets: ["vietnamese"],
   weight: ["400"],
-  display: "swap",
+  display: "optional",
   preload: true,
   adjustFontFallback: true,
   variable: "--font-be-vietnam-pro",
