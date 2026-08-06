@@ -180,7 +180,7 @@ function Hero({ onSearch }: { onSearch: () => void }) {
             Thuê xe tự lái,<br />
             <span className="text-sand">đặt xe nhanh tại Huế.</span>
           </h1>
-          <p className="mt-7 max-w-[640px] text-lg leading-[1.8] text-slate-200 sm:text-xl">
+          <p className="mt-7 max-w-[640px] text-base leading-7 text-slate-200 sm:text-xl sm:leading-[1.8]">
             Lựa chọn xe điện và xe xăng chất lượng cho chuyến thuê xe du lịch tự lái, giao xe tận nơi Huế theo lịch xác nhận. Đặt xe nhanh qua Hotline hoặc Zalo.
           </p>
           <div className="mt-9 flex flex-wrap gap-3">
