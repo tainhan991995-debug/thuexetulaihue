@@ -2,7 +2,6 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { AnimatePresence, motion } from "framer-motion";
 import { preload } from "react-dom";
 import {
   ArrowRight,
@@ -143,9 +142,8 @@ function Header() {
         </button>
       </div>
 
-      <AnimatePresence>
-        {open && (
-          <motion.div initial={{ opacity: 0, y: -10 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -10 }} className="border-t border-slate-100 bg-white px-5 py-5 shadow-soft xl:hidden">
+      {open && (
+          <div className="border-t border-slate-100 bg-white px-5 py-5 shadow-soft xl:hidden">
             <nav className="mx-auto grid max-w-7xl gap-1">
               {navigation.map(([label, href]) => (
                 <button key={href} onClick={() => { setOpen(false); scrollToId(href); }} className="rounded-xl px-4 py-3 text-left text-sm font-bold text-slate-700 hover:bg-mist">
@@ -156,9 +154,8 @@ function Header() {
               <a href={zaloHref} target="_blank" rel="noreferrer" className="flex items-center gap-2 rounded-xl bg-[#0068FF] px-4 py-3 text-sm font-bold text-white"><ZaloLogo size={18} /> Zalo</a>
               <a href={facebookHref} target="_blank" rel="noreferrer" className="flex items-center gap-2 rounded-xl bg-[#1877F2] px-4 py-3 text-sm font-bold text-white"><Facebook size={16} /> Facebook {brandName}</a>
             </nav>
-          </motion.div>
+          </div>
         )}
-      </AnimatePresence>
     </header>
   );
 }
@@ -241,11 +238,11 @@ function WhyUs() {
       <SectionTitle eyebrow="Dịch vụ thuê xe Huế" title="Mỗi hành trình, thêm an tâm." text="Lựa chọn phù hợp để thuê xe điện Huế, thuê xe theo ngày, đi gia đình và du lịch tự lái." centered />
         <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {reasons.map(({ icon: Icon, title, description }, index) => (
-            <motion.article key={title} initial={{ opacity: 0, y: 15 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.2 }} transition={{ delay: index * 0.04 }} className="group rounded-[1.35rem] border border-slate-100 bg-white p-6 shadow-soft transition hover:-translate-y-1 hover:border-teal/20">
+            <article key={title} className="group rounded-[1.35rem] border border-slate-100 bg-white p-6 shadow-soft transition hover:-translate-y-1 hover:border-teal/20">
               <span className="grid h-12 w-12 place-items-center rounded-2xl bg-teal/10 text-teal transition group-hover:bg-ink group-hover:text-white"><Icon size={22} /></span>
               <h3 className="mt-5 font-heading text-lg font-bold text-ink">{title}</h3>
               <p className="mt-2 text-sm leading-6 text-slate-500">{description}</p>
-            </motion.article>
+            </article>
           ))}
         </div>
       </div>
@@ -265,7 +262,7 @@ function CarsSection() {
   const toggleCompare = (id: string) => setCompare((current) => current.includes(id) ? current.filter((item) => item !== id) : current.length < 2 ? [...current, id] : [current[1], id]);
   const comparedCars = cars.filter((car) => compare.includes(car.id));
 
-  return <section id="danh-sach-xe" className="scroll-mt-24 bg-white py-20 sm:py-28"><div className="mx-auto max-w-7xl px-5 lg:px-8"><div className="flex flex-col justify-between gap-6 lg:flex-row lg:items-end"><SectionTitle eyebrow="Danh sách thuê xe Huế" title="Thuê xe VinFast Huế, xe 4 chỗ và 7 chỗ." text="Giá, thông số và tình trạng xe được hiển thị theo dữ liệu hiện có để bạn chọn xe tự lái phù hợp chuyến đi." /><div className="flex rounded-2xl bg-mist p-1.5"><FilterButton active={brand === "Tất cả"} onClick={() => setBrand("Tất cả")}>Tất cả</FilterButton><FilterButton active={brand === "VinFast"} onClick={() => setBrand("VinFast")}>VinFast</FilterButton><FilterButton active={brand === "Honda"} onClick={() => setBrand("Honda")}>Honda</FilterButton></div></div><div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">{filteredCars.map((car, index) => <motion.article layout key={car.id} initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: index * 0.04 }} className="overflow-hidden rounded-[1.5rem] border border-slate-100 bg-white shadow-soft"><div className="relative h-52 overflow-hidden bg-slate-100"><CarImage car={car} className="transition duration-700 hover:scale-105" /><span className="absolute left-4 top-4 inline-flex items-center gap-1.5 rounded-full bg-white/95 px-2.5 py-1 text-[11px] font-extrabold text-teal shadow-sm"><span className="h-1.5 w-1.5 rounded-full bg-teal" /> {car.status}</span></div><div className="p-5"><p className="text-xs font-bold uppercase tracking-[.13em] text-teal">{car.brand}</p><h3 className="mt-1 font-heading text-xl font-bold text-ink">{car.name}</h3><div className="mt-4 grid grid-cols-3 gap-2 border-y border-slate-100 py-3 text-center text-[10px] font-semibold text-slate-400"><span><CarFront size={15} className="mx-auto mb-1 text-ink" />{car.seats}</span><span><Gauge size={15} className="mx-auto mb-1 text-ink" />{car.gearbox}</span><span><Fuel size={15} className="mx-auto mb-1 text-ink" />{car.fuel}</span></div><div className="mt-4 flex items-center justify-between"><span><span className="block text-[10px] font-bold uppercase tracking-wider text-slate-400">GIÁ XE CHỈ TỪ</span><strong className="font-heading text-sm text-ink">{formatPrice(car.price)}</strong></span><button onClick={() => setBooked(car)} className="rounded-xl bg-ink px-3.5 py-2.5 text-xs font-bold text-white transition hover:bg-teal">Đặt xe</button></div><button onClick={() => toggleCompare(car.id)} className={`mt-3 flex w-full items-center justify-center gap-1.5 rounded-xl py-2 text-xs font-bold transition ${compare.includes(car.id) ? "bg-teal/10 text-teal" : "bg-mist text-slate-500 hover:bg-slate-100"}`}><Check size={14} /> {compare.includes(car.id) ? "Đã chọn so sánh" : "So sánh xe"}</button></div></motion.article>)}</div><Comparison comparedCars={comparedCars} onClear={() => setCompare([])} /></div><BookingModal car={booked} onClose={() => setBooked(null)} /></section>;
+  return <section id="danh-sach-xe" className="scroll-mt-24 bg-white py-20 sm:py-28"><div className="mx-auto max-w-7xl px-5 lg:px-8"><div className="flex flex-col justify-between gap-6 lg:flex-row lg:items-end"><SectionTitle eyebrow="Danh sách thuê xe Huế" title="Thuê xe VinFast Huế, xe 4 chỗ và 7 chỗ." text="Giá, thông số và tình trạng xe được hiển thị theo dữ liệu hiện có để bạn chọn xe tự lái phù hợp chuyến đi." /><div className="flex rounded-2xl bg-mist p-1.5"><FilterButton active={brand === "Tất cả"} onClick={() => setBrand("Tất cả")}>Tất cả</FilterButton><FilterButton active={brand === "VinFast"} onClick={() => setBrand("VinFast")}>VinFast</FilterButton><FilterButton active={brand === "Honda"} onClick={() => setBrand("Honda")}>Honda</FilterButton></div></div><div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">{filteredCars.map((car, index) => <article key={car.id} className="overflow-hidden rounded-[1.5rem] border border-slate-100 bg-white shadow-soft"><div className="relative h-52 overflow-hidden bg-slate-100"><CarImage car={car} className="transition duration-700 hover:scale-105" /><span className="absolute left-4 top-4 inline-flex items-center gap-1.5 rounded-full bg-white/95 px-2.5 py-1 text-[11px] font-extrabold text-teal shadow-sm"><span className="h-1.5 w-1.5 rounded-full bg-teal" /> {car.status}</span></div><div className="p-5"><p className="text-xs font-bold uppercase tracking-[.13em] text-teal">{car.brand}</p><h3 className="mt-1 font-heading text-xl font-bold text-ink">{car.name}</h3><div className="mt-4 grid grid-cols-3 gap-2 border-y border-slate-100 py-3 text-center text-[10px] font-semibold text-slate-400"><span><CarFront size={15} className="mx-auto mb-1 text-ink" />{car.seats}</span><span><Gauge size={15} className="mx-auto mb-1 text-ink" />{car.gearbox}</span><span><Fuel size={15} className="mx-auto mb-1 text-ink" />{car.fuel}</span></div><div className="mt-4 flex items-center justify-between"><span><span className="block text-[10px] font-bold uppercase tracking-wider text-slate-400">GIÁ XE CHỈ TỪ</span><strong className="font-heading text-sm text-ink">{formatPrice(car.price)}</strong></span><button onClick={() => setBooked(car)} className="rounded-xl bg-ink px-3.5 py-2.5 text-xs font-bold text-white transition hover:bg-teal">Đặt xe</button></div><button onClick={() => toggleCompare(car.id)} className={`mt-3 flex w-full items-center justify-center gap-1.5 rounded-xl py-2 text-xs font-bold transition ${compare.includes(car.id) ? "bg-teal/10 text-teal" : "bg-mist text-slate-500 hover:bg-slate-100"}`}><Check size={14} /> {compare.includes(car.id) ? "Đã chọn so sánh" : "So sánh xe"}</button></div></article>)}</div><Comparison comparedCars={comparedCars} onClear={() => setCompare([])} /></div><BookingModal car={booked} onClose={() => setBooked(null)} /></section>;
 }
 
 function FilterButton({ active, onClick, children }: { active: boolean; onClick: () => void; children: React.ReactNode }) { return <button onClick={onClick} className={`rounded-xl px-3 py-2 text-xs font-bold transition ${active ? "bg-white text-ink shadow-sm" : "text-slate-500 hover:text-ink"}`}>{children}</button>; }
@@ -273,7 +270,7 @@ function FilterButton({ active, onClick, children }: { active: boolean; onClick:
 function Comparison({ comparedCars, onClear }: { comparedCars: Car[]; onClear: () => void }) {
   if (!comparedCars.length) return null;
   const rows = [["Giá thuê", (car: Car) => formatPrice(car.price)], ["Tình trạng", (car: Car) => car.status], ["Số chỗ", (car: Car) => car.seats], ["Hộp số", (car: Car) => car.gearbox], ["Nhiên liệu", (car: Car) => car.fuel], ["Quãng đường", (car: Car) => car.range], ["Tiện nghi", (car: Car) => car.feature]] as const;
-  return <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} className="mt-8 overflow-hidden rounded-[1.5rem] border border-teal/15 bg-[#f4fbfa]"><div className="flex flex-wrap items-center justify-between gap-3 px-6 py-5"><div><p className="text-xs font-bold uppercase tracking-[.14em] text-teal">So sánh xe</p><h3 className="font-heading text-xl font-bold text-ink">{comparedCars.length === 1 ? "Chọn thêm một xe để so sánh" : "Đặt cạnh nhau để dễ lựa chọn"}</h3></div><button onClick={onClear} className="text-xs font-bold text-slate-500 underline underline-offset-4">Xoá lựa chọn</button></div><div className="overflow-auto"><table className="min-w-[580px] w-full border-collapse text-left text-sm"><thead><tr className="border-y border-teal/10 bg-white/60"><th className="px-6 py-4 font-bold text-slate-500">Tiêu chí</th>{comparedCars.map((car) => <th key={car.id} className="px-6 py-4 font-heading text-base text-ink">{car.name}</th>)}</tr></thead><tbody>{rows.map(([label, getValue]) => <tr key={label} className="border-b border-teal/10 last:border-0"><td className="px-6 py-3 font-semibold text-slate-500">{label}</td>{comparedCars.map((car) => <td key={car.id} className="px-6 py-3 font-medium text-ink">{getValue(car)}</td>)}</tr>)}</tbody></table></div></motion.div>;
+  return <div className="mt-8 overflow-hidden rounded-[1.5rem] border border-teal/15 bg-[#f4fbfa]"><div className="flex flex-wrap items-center justify-between gap-3 px-6 py-5"><div><p className="text-xs font-bold uppercase tracking-[.14em] text-teal">So sánh xe</p><h3 className="font-heading text-xl font-bold text-ink">{comparedCars.length === 1 ? "Chọn thêm một xe để so sánh" : "Đặt cạnh nhau để dễ lựa chọn"}</h3></div><button onClick={onClear} className="text-xs font-bold text-slate-500 underline underline-offset-4">Xoá lựa chọn</button></div><div className="overflow-auto"><table className="min-w-[580px] w-full border-collapse text-left text-sm"><thead><tr className="border-y border-teal/10 bg-white/60"><th className="px-6 py-4 font-bold text-slate-500">Tiêu chí</th>{comparedCars.map((car) => <th key={car.id} className="px-6 py-4 font-heading text-base text-ink">{car.name}</th>)}</tr></thead><tbody>{rows.map(([label, getValue]) => <tr key={label} className="border-b border-teal/10 last:border-0"><td className="px-6 py-3 font-semibold text-slate-500">{label}</td>{comparedCars.map((car) => <td key={car.id} className="px-6 py-3 font-medium text-ink">{getValue(car)}</td>)}</tr>)}</tbody></table></div></div>;
 }
 
 function BookingModal({ car, onClose }: { car: Car | null; onClose: () => void }) {
@@ -282,9 +279,8 @@ function BookingModal({ car, onClose }: { car: Car | null; onClose: () => void }
   const days = pickup && returnDate ? Math.max(0, Math.ceil((new Date(returnDate).getTime() - new Date(pickup).getTime()) / 86_400_000)) : 0;
 
   return (
-    <AnimatePresence>
-      {car && <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="fixed inset-0 z-[80] grid place-items-center bg-ink/60 p-4 backdrop-blur-sm" onMouseDown={onClose}>
-        <motion.div initial={{ scale: 0.96, y: 15 }} animate={{ scale: 1, y: 0 }} exit={{ scale: 0.96, y: 15 }} onMouseDown={(event) => event.stopPropagation()} className="w-full max-w-md overflow-hidden rounded-[1.75rem] bg-white shadow-2xl">
+    <>{car && <div className="fixed inset-0 z-[80] grid place-items-center bg-ink/60 p-4 backdrop-blur-sm" onMouseDown={onClose}>
+        <div onMouseDown={(event) => event.stopPropagation()} className="w-full max-w-md overflow-hidden rounded-[1.75rem] bg-white shadow-2xl">
           <div className="flex items-start justify-between bg-ink p-6 text-white"><div><p className="text-xs font-bold uppercase tracking-[.15em] text-sand">Yêu cầu đặt xe</p><h3 className="mt-1 font-heading text-2xl font-bold">{car.name}</h3></div><button onClick={onClose} className="rounded-xl bg-white/10 p-2"><X size={19} /></button></div>
           <div className="space-y-4 p-6">
             <p className="text-sm leading-6 text-slate-500">Chọn thời gian dự kiến để xem tổng tiền theo giá thuê đã niêm yết.</p>
@@ -292,9 +288,8 @@ function BookingModal({ car, onClose }: { car: Car | null; onClose: () => void }
             <div className="rounded-2xl bg-mist p-4 text-sm"><div className="flex justify-between"><span className="text-slate-500">Đơn giá</span><strong className="text-ink">{formatPrice(car.price)}</strong></div><div className="mt-2 flex justify-between"><span className="text-slate-500">Thời gian thuê</span><strong className="text-ink">{days ? `${days} ngày` : "Chọn ngày"}</strong></div><div className="mt-2 flex justify-between"><span className="text-slate-500">Tổng dự kiến</span><strong className="text-ink">{days ? formatPrice(car.price * days).replace("/ngày", "") : "Chọn ngày"}</strong></div></div>
             <a href={zaloHref} target="_blank" rel="noreferrer" className="flex w-full items-center justify-center gap-2 rounded-xl bg-teal px-4 py-3.5 text-sm font-bold text-white transition hover:bg-[#207a70]"><MessageCircle size={17} /> Nhắn Zalo xác nhận thuê xe Huế</a>
           </div>
-        </motion.div>
-      </motion.div>}
-    </AnimatePresence>
+        </div>
+      </div>}</>
   );
 }
 
@@ -334,7 +329,7 @@ function GalleryCarousel({ images, label, emptyMessage }: { images: string[]; la
   };
   if (!images.length) return <div className="grid min-h-[430px] place-items-center rounded-[1.75rem] bg-mist p-8 text-center"><div><Sparkles size={28} className="mx-auto text-teal" /><h3 className="mt-4 font-heading text-xl font-bold text-ink">Chưa có {label.toLowerCase()}</h3><p className="mt-2 text-sm leading-6 text-slate-500">{emptyMessage}</p></div></div>;
   return <div className="group relative min-h-[430px] overflow-hidden rounded-[1.75rem] bg-slate-100" aria-label={label} onTouchStart={(event) => { touchStartX.current = event.touches[0].clientX; }} onTouchEnd={handleTouchEnd}>
-    <AnimatePresence mode="wait" initial={false}><motion.div key={images[activeIndex]} initial={{ opacity: 0, scale: 0.99 }} animate={{ opacity: 1, scale: 1 }} exit={{ opacity: 0, scale: 1.01 }} transition={{ duration: 0.38, ease: "easeInOut" }} className="absolute inset-0"><Image src={images[activeIndex]} fill sizes="(min-width: 1024px) 60vw, 100vw" alt={`${label} ${activeIndex + 1}`} loading="lazy" className="bg-slate-100 object-contain object-center" /></motion.div></AnimatePresence>
+    <div className="absolute inset-0"><Image src={images[activeIndex]} fill sizes="(min-width: 1024px) 60vw, 100vw" alt={`${label} ${activeIndex + 1}`} loading="lazy" className="bg-slate-100 object-contain object-center" /></div>
     {hasSlides && <><button type="button" onClick={() => showSlide(activeIndex - 1)} aria-label="Ảnh trước" className="absolute left-3 top-1/2 z-10 grid h-10 w-10 -translate-y-1/2 place-items-center rounded-full bg-white/75 text-ink shadow-md backdrop-blur-md transition hover:bg-teal hover:text-white lg:opacity-0 lg:group-hover:opacity-100"><ChevronLeft size={21} strokeWidth={2.5} /></button><button type="button" onClick={() => showSlide(activeIndex + 1)} aria-label="Ảnh tiếp theo" className="absolute right-3 top-1/2 z-10 grid h-10 w-10 -translate-y-1/2 place-items-center rounded-full bg-white/75 text-ink shadow-md backdrop-blur-md transition hover:bg-teal hover:text-white lg:opacity-0 lg:group-hover:opacity-100"><ChevronRight size={21} strokeWidth={2.5} /></button><div className="absolute bottom-4 left-1/2 z-10 flex -translate-x-1/2 items-center gap-1 rounded-full bg-white/65 px-2 py-1 shadow-sm backdrop-blur-md" aria-label="Chọn ảnh">{images.map((image, index) => <button key={image} type="button" onClick={() => showSlide(index)} aria-label={`Xem ảnh ${index + 1}`} aria-current={activeIndex === index ? "true" : undefined} className={`grid h-6 w-6 place-items-center rounded-full transition-all duration-300 after:rounded-full after:bg-ink ${activeIndex === index ? "after:h-2.5 after:w-2.5 after:bg-teal" : "after:h-2 after:w-2 opacity-60 hover:opacity-100"}`} />)}</div></>}
   </div>;
 }
@@ -367,7 +362,7 @@ function ProcessFaq() {
         </div>
         <div>
           <SectionTitle eyebrow="Câu hỏi về thuê xe Huế" title="Thông tin cần biết trước khi thuê." />
-          <div className="mt-8 overflow-hidden rounded-[1.5rem] border border-slate-100 bg-white shadow-soft">{faqs.length ? (faqs as { question: string; answer: string }[]).map((faq, index) => <div key={faq.question} className="border-b border-slate-100 last:border-0"><button onClick={() => setActive(active === index ? null : index)} className="flex w-full items-center justify-between gap-4 p-5 text-left font-heading font-bold text-ink"><span>{faq.question}</span><ChevronDown className={`shrink-0 transition ${active === index ? "rotate-180" : ""}`} size={18} /></button><AnimatePresence>{active === index && <motion.p initial={{ height: 0, opacity: 0 }} animate={{ height: "auto", opacity: 1 }} exit={{ height: 0, opacity: 0 }} className="overflow-hidden px-5 pb-5 text-sm leading-6 text-slate-500">{faq.answer}</motion.p>}</AnimatePresence></div>) : <div className="p-7"><CircleHelp size={26} className="text-teal" /><h3 className="mt-4 font-heading text-lg font-bold text-ink">Đang cập nhật câu hỏi</h3><p className="mt-2 text-sm leading-6 text-slate-500">Liên hệ trực tiếp để được giải đáp về điều kiện thuê xe, lịch trống và báo giá.</p><a href={zaloHref} target="_blank" rel="noreferrer" className="mt-5 inline-flex items-center gap-2 text-sm font-bold text-teal">Nhắn Zalo {hotline} <ChevronRight size={16} /></a></div>}</div>
+          <div className="mt-8 overflow-hidden rounded-[1.5rem] border border-slate-100 bg-white shadow-soft">{faqs.length ? (faqs as { question: string; answer: string }[]).map((faq, index) => <div key={faq.question} className="border-b border-slate-100 last:border-0"><button onClick={() => setActive(active === index ? null : index)} className="flex w-full items-center justify-between gap-4 p-5 text-left font-heading font-bold text-ink"><span>{faq.question}</span><ChevronDown className={`shrink-0 transition ${active === index ? "rotate-180" : ""}`} size={18} /></button>{active === index && <p className="overflow-hidden px-5 pb-5 text-sm leading-6 text-slate-500">{faq.answer}</p>}</div>) : <div className="p-7"><CircleHelp size={26} className="text-teal" /><h3 className="mt-4 font-heading text-lg font-bold text-ink">Đang cập nhật câu hỏi</h3><p className="mt-2 text-sm leading-6 text-slate-500">Liên hệ trực tiếp để được giải đáp về điều kiện thuê xe, lịch trống và báo giá.</p><a href={zaloHref} target="_blank" rel="noreferrer" className="mt-5 inline-flex items-center gap-2 text-sm font-bold text-teal">Nhắn Zalo {hotline} <ChevronRight size={16} /></a></div>}</div>
         </div>
       </div>
     </section>
