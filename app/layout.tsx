@@ -15,18 +15,26 @@ const beVietnamPro = Be_Vietnam_Pro({
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
-  title: "Thuê xe tự lái Huế | VinFast, xe điện & xe xăng",
+  title: "Thuê xe tự lái Huế | Xe điện tự lái & xe xăng tự lái",
   description:
-    "Thuê xe tự lái Huế với xe VinFast, xe điện, xe xăng cùng lựa chọn 4–7 chỗ. Thuê xe theo ngày, giao xe tận nơi Huế và xác nhận lịch tại sân bay Phú Bài.",
+    "Thuê xe tự lái Huế với xe điện tự lái VinFast và xe xăng tự lái 4–7 chỗ. Giá theo ngày, giao xe tận nơi và xác nhận lịch tại sân bay Phú Bài.",
+  keywords: [
+    "thuê xe tự lái Huế",
+    "xe điện tự lái",
+    "xe xăng tự lái",
+    "thuê xe VinFast Huế",
+    "thuê xe 4 chỗ Huế",
+    "thuê xe 7 chỗ Huế",
+  ],
   alternates: { canonical: siteUrl },
   openGraph: {
     type: "website",
     locale: "vi_VN",
     url: siteUrl,
     siteName: "TRẠM NHÀ MINT - Thuê xe tự lái Huế",
-    title: "Thuê xe tự lái Huế | VinFast, xe điện & xe xăng",
+    title: "Thuê xe tự lái Huế | Xe điện tự lái & xe xăng tự lái",
     description:
-      "Thuê xe theo ngày tại Huế với xe VinFast, xe điện, xe xăng cùng lựa chọn 4–7 chỗ.",
+      "Thuê xe theo ngày tại Huế với xe điện tự lái VinFast, xe xăng tự lái cùng lựa chọn 4–7 chỗ.",
     images: [
       {
         url: "/og.png",
@@ -40,7 +48,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Thuê xe tự lái Huế | TRẠM NHÀ MINT",
     description:
-      "Thuê xe VinFast, xe điện, xe xăng cùng lựa chọn 4–7 chỗ theo ngày tại Huế.",
+      "Thuê xe điện tự lái VinFast, xe xăng tự lái cùng lựa chọn 4–7 chỗ theo ngày tại Huế.",
     images: ["/og.png"],
   },
   robots: { index: true, follow: true },

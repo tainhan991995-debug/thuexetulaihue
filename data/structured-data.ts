@@ -20,7 +20,7 @@ export const sitewideBusinessSchema = {
       url: siteUrl,
       logo: { "@id": logoId },
       image: { "@id": primaryImageId },
-      description: "Dịch vụ thuê xe tự lái tại Huế với xe VinFast, xe điện, xe xăng cùng lựa chọn 4–7 chỗ theo ngày.",
+      description: "Dịch vụ thuê xe tự lái tại Huế với xe điện tự lái VinFast, xe xăng tự lái cùng lựa chọn 4–7 chỗ theo ngày.",
       sameAs: ["https://www.facebook.com/huechothuexetulai", "https://zalo.me/0986789715"],
       contactPoint: {
         "@type": "ContactPoint",
@@ -39,7 +39,7 @@ export const sitewideBusinessSchema = {
       url: siteUrl,
       telephone: "+84986789715",
       priceRange: "550.000đ–1.800.000đ/ngày",
-      description: "Thuê xe tự lái theo ngày tại Huế với xe điện VinFast và xe xăng; liên hệ để xác nhận lịch xe và phương án giao nhận.",
+      description: "Thuê xe tự lái theo ngày tại Huế với xe điện tự lái VinFast và xe xăng tự lái; liên hệ để xác nhận lịch xe và phương án giao nhận.",
       address: {
         "@type": "PostalAddress",
         streetAddress: "6/5 Tôn Quang Phiệt",

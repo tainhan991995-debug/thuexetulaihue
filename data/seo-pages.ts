@@ -19,7 +19,7 @@ export const seoPages: SeoPage[] = [
     slug: "thue-xe-tu-lai-hue",
     label: "Thuê xe tự lái Huế",
     title: "Thuê xe tự lái Huế | Đặt xe theo ngày tại TRẠM NHÀ MINT",
-    description: "Thuê xe tự lái Huế với lựa chọn xe điện VinFast và xe xăng. Xem đội xe, giá theo ngày và liên hệ TRẠM NHÀ MINT để xác nhận lịch.",
+    description: "Thuê xe tự lái Huế với lựa chọn xe điện tự lái VinFast và xe xăng tự lái. Xem đội xe, giá theo ngày và liên hệ TRẠM NHÀ MINT để xác nhận lịch.",
     h1: "Thuê xe tự lái Huế cho hành trình chủ động của bạn",
     lead: "Trang thông tin dành cho khách cần chọn xe theo lịch riêng tại Huế, xem dữ liệu đội xe hiện có và nhận xác nhận qua Hotline hoặc Zalo.",
     image: "/images/tram-nha-minh-fleet.webp",
@@ -29,7 +29,7 @@ export const seoPages: SeoPage[] = [
         "Thuê xe tự lái Huế phù hợp khi bạn muốn tự quyết giờ nhận xe, lộ trình và nhịp di chuyển của chuyến đi. Thay vì phụ thuộc vào một khung giờ cố định, bạn có thể chọn xe theo số người, điểm đến và ngày sử dụng dự kiến. Huế có khu vực trung tâm, điểm tham quan, ga tàu và sân bay; vì vậy việc chuẩn bị lịch trước giúp việc nhận xe thuận tiện hơn. TRẠM NHÀ MINT tiếp nhận nhu cầu qua Hotline hoặc Zalo để kiểm tra lịch xe thực tế trước khi xác nhận.",
         "Điểm quan trọng của một chuyến thuê xe theo ngày là chọn đúng nhu cầu, không chỉ chọn theo kiểu dáng. Nhóm nhỏ thường quan tâm xe gọn, dễ di chuyển; gia đình có thể cần thêm chỗ ngồi hoặc khoang hành lý; còn khách đi nhiều điểm trong ngày nên cân nhắc mức sử dụng và lịch sạc nếu chọn xe điện. Danh sách trên website hiển thị thông số cơ bản, giá tham khảo và trạng thái hiện có để bạn bắt đầu so sánh một cách rõ ràng." ] },
       { heading: "Đội xe hiện có và cách chọn xe", paragraphs: [
-        "Đội xe của TRẠM NHÀ MINT có các mẫu VinFast VF 3, VF e34, VF 5, VF 6, VF 8, VF 9, Limo Green và Honda City theo dữ liệu website. Mỗi mẫu có số chỗ, loại nhiên liệu, hộp số và mức giá theo ngày riêng. Những thông tin này giúp bạn lọc nhanh giữa xe điện VinFast tự lái và xe xăng, sau đó liên hệ để biết xe có sẵn đúng ngày nhận hay không. Giá hiển thị là mức tham khảo; lịch và tình trạng xe luôn được xác nhận trước khi đặt.",
+        "Đội xe của TRẠM NHÀ MINT có các mẫu VinFast VF 3, VF e34, VF 5, VF 6, VF 8, VF 9, Limo Green và Honda City theo dữ liệu website. Mỗi mẫu có số chỗ, loại nhiên liệu, hộp số và mức giá theo ngày riêng. Những thông tin này giúp bạn lọc nhanh giữa xe điện tự lái VinFast và xe xăng tự lái, sau đó liên hệ để biết xe có sẵn đúng ngày nhận hay không. Giá hiển thị là mức tham khảo; lịch và tình trạng xe luôn được xác nhận trước khi đặt.",
         "Không nên chọn xe chỉ vì giá thấp nhất hoặc vì một tính năng riêng lẻ. Hãy cân nhắc số người ngồi thực tế, hành lý, quãng đường dự kiến và việc có cần giao xe theo lịch hay không. Nếu chưa chắc giữa xe 4 chỗ, 5 chỗ và 7 chỗ, bạn có thể mở các trang chuyên mục bên dưới để xem nội dung phù hợp hơn. Cách chuẩn bị này giúp cuộc trao đổi với đơn vị cho thuê ngắn gọn và tránh thay đổi kế hoạch sát giờ." ] },
       { heading: "Chuẩn bị thông tin trước khi liên hệ", paragraphs: [
         "Để được tư vấn nhanh, bạn nên gửi ngày nhận, ngày trả, mẫu xe quan tâm và điểm nhận xe dự kiến. Với nhu cầu giao nhận tại nhà, sân bay, ga tàu hoặc bến xe, thời gian dự kiến là thông tin cần thiết để đơn vị kiểm tra khả năng phục vụ. Website không tự động chốt lịch hay báo tình trạng trống theo thời gian thực; Zalo và Hotline là kênh xác nhận cuối cùng để thông tin không bị sai lệch.",
