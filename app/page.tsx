@@ -53,9 +53,9 @@ const mapsSearchHref =
 "https://www.google.com/maps?q=Tr%E1%BA%A1m+nh%C3%A0+Mint+-+Cho+thu%C3%AA+xe+%C3%B4+t%C3%B4+t%E1%BB%B1+l%C3%A1i+t%E1%BA%A1i+Hu%E1%BA%BF,+6/5+T%C3%B4n+Quang+Phi%E1%BB%87t,+An+C%E1%BB%B1u,+Hu%E1%BA%BF&ftid=0x3141a169ae726069:0x1262216cc774ec0b";
 const mapsEmbedSrc =
 "https://www.google.com/maps?q=Tr%E1%BA%A1m+nh%C3%A0+Mint+-+Cho+thu%C3%AA+xe+%C3%B4+t%C3%B4+t%E1%BB%B1+l%C3%A1i+t%E1%BA%A1i+Hu%E1%BA%BF,+6/5+T%C3%B4n+Quang+Phi%E1%BB%87t,+An+C%E1%BB%B1u,+Hu%E1%BA%BF&output=embed";
-const heroSizes = "(min-width: 1280px) 640px, (min-width: 1024px) 50vw, 100vw";
+const heroSizes = "(max-width: 1023px) 320px, (min-width: 1280px) 640px, 50vw";
 const heroAvifSrcSet = "/images/tram-nha-minh-fleet-480.avif 480w, /images/tram-nha-minh-fleet-768.avif 768w, /images/tram-nha-minh-fleet.avif 1299w";
-const heroWebpSrcSet = "/images/tram-nha-minh-fleet-480.webp 480w, /images/tram-nha-minh-fleet-768.webp 768w, /images/tram-nha-minh-fleet.webp 1299w";
+const heroWebpSrcSet = "/images/tram-nha-minh-fleet-480.webp 480w, /images/tram-nha-minh-fleet-640.webp 640w, /images/tram-nha-minh-fleet-768.webp 768w, /images/tram-nha-minh-fleet.webp 1299w";
 
 
 const navigation = [
@@ -199,8 +199,8 @@ function Hero({ onSearch }: { onSearch: () => void }) {
           <div className="absolute -inset-4 rounded-[2.5rem] bg-gradient-to-br from-sand/50 via-transparent to-teal/40 blur-2xl" />
           <div className="relative overflow-hidden rounded-[2rem] border border-white/30 bg-white/10 p-2 shadow-[0_35px_80px_rgba(0,0,0,.3)] backdrop-blur-sm">
             <picture>
-              <source srcSet={heroAvifSrcSet} sizes={heroSizes} type="image/avif" />
               <source srcSet={heroWebpSrcSet} sizes={heroSizes} type="image/webp" />
+              <source srcSet={heroAvifSrcSet} sizes={heroSizes} type="image/avif" />
               <img src="/images/tram-nha-minh-fleet.webp" srcSet={heroWebpSrcSet} sizes={heroSizes} width={1299} height={878} fetchPriority="high" decoding="async" alt={`Đội xe thuê xe tự lái Huế của ${brandName}: VinFast, xe điện và xe xăng`} className="block h-auto w-full rounded-[1.6rem]" />
             </picture>
             <span className="absolute bottom-6 left-6 rounded-full bg-white/90 px-3 py-1.5 text-xs font-extrabold text-ink shadow-lg">Đội xe {brandName}</span>
@@ -396,7 +396,7 @@ function Footer() {
 function FloatingActions() { return <div className="fixed bottom-5 right-5 z-40 flex flex-col gap-2"><a href={zaloHref} target="_blank" rel="noreferrer" aria-label="Nhắn Zalo thuê xe tự lái Huế" className="grid h-11 w-11 place-items-center rounded-full bg-teal text-white shadow-float transition hover:scale-105"><MessageCircle size={19} /></a><a href="#trang-chu" aria-label="Lên đầu trang" className="grid h-11 w-11 place-items-center rounded-full bg-sand text-ink shadow-float transition hover:scale-105"><RotateCcw size={19} /></a></div>; }
 
 export default function Home() {
-  preload("/images/tram-nha-minh-fleet-480.avif", { as: "image", type: "image/avif", fetchPriority: "high", imageSizes: heroSizes, imageSrcSet: heroAvifSrcSet });
+  preload("/images/tram-nha-minh-fleet-480.webp", { as: "image", type: "image/webp", fetchPriority: "high", imageSizes: heroSizes, imageSrcSet: heroWebpSrcSet });
   const goToCars = () => scrollToId("#danh-sach-xe");
   const faqSchema = createFaqPageSchema(faqs as { question: string; answer: string }[], "/");
   return <><Header /><main><Hero onSearch={goToCars} /><WhyUs /><CarsSection /><div className="bg-white px-5 py-6 lg:px-8"><div className="mx-auto max-w-7xl"><BookingCta placement="middle" /></div></div><Pricing /><RentalNotice /><Gallery /><ProcessFaq /><Contact /><LocationMap /><InternalLinks /><div className="bg-mist px-5 pb-20 lg:px-8"><div className="mx-auto max-w-7xl"><BookingCta placement="end" /></div></div></main><Footer /><FloatingActions /><script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} /></>;
