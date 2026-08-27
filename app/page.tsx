@@ -23,6 +23,7 @@ import {
   Menu,
   MessageCircle,
   Phone,
+  Play,
   RotateCcw,
   ShieldCheck,
   Sparkles,
@@ -339,9 +340,21 @@ function GalleryCarousel({ images, label, emptyMessage }: { images: string[]; la
 
 function ReelsPlayer({ reels }: { reels: string[] }) {
   const [activeReel, setActiveReel] = useState(0);
+  const [isPlaying, setIsPlaying] = useState(false);
+  const videoRef = useRef<HTMLVideoElement>(null);
   if (!reels.length) return <div className="grid min-h-[430px] place-items-center rounded-[1.75rem] bg-mist p-8 text-center"><div><Star size={28} className="mx-auto text-teal" /><h3 className="mt-4 font-heading text-xl font-bold text-ink">Chưa có video / Reels</h3><p className="mt-2 text-sm leading-6 text-slate-500">Thêm file .mp4 vào thư mục public/videos/reels.</p></div></div>;
   const activeVideo = reels[activeReel];
-  return <div className="overflow-hidden rounded-[1.75rem] bg-slate-950"><video key={activeVideo} controls playsInline preload="none" poster={reelPosters[activeVideo] ?? "/images/tram-nha-minh-fleet.webp"} aria-label={`Video đội xe ${activeReel + 1}`} className="h-[430px] w-full bg-black object-contain"><source src={activeVideo} type="video/mp4" />Trình duyệt của bạn không hỗ trợ video.</video>{reels.length > 1 && <div className="flex gap-2 overflow-x-auto bg-ink p-3">{reels.map((video, index) => <button key={video} onClick={() => setActiveReel(index)} className={`shrink-0 rounded-lg px-3 py-2 text-xs font-bold transition ${activeReel === index ? "bg-sand text-ink" : "bg-white/10 text-white hover:bg-white/20"}`}>Video {index + 1}</button>)}</div>}</div>;
+  const togglePlayback = () => {
+    const player = videoRef.current;
+    if (!player) return;
+    if (player.paused) void player.play();
+    else player.pause();
+  };
+  const selectReel = (index: number) => {
+    setActiveReel(index);
+    setIsPlaying(false);
+  };
+  return <div className="overflow-hidden rounded-[1.75rem] bg-slate-950"><div className="relative h-[430px] bg-black"><video ref={videoRef} key={activeVideo} playsInline preload="none" poster={reelPosters[activeVideo] ?? "/images/tram-nha-minh-fleet.webp"} aria-label={`Video đội xe ${activeReel + 1}`} onPlay={() => setIsPlaying(true)} onPause={() => setIsPlaying(false)} onEnded={() => setIsPlaying(false)} className="pointer-events-none h-full w-full bg-black object-contain"><source src={activeVideo} type="video/mp4" />Trình duyệt của bạn không hỗ trợ video.</video><button type="button" onClick={togglePlayback} aria-label={isPlaying ? "Dừng video" : "Phát video"} className="absolute inset-0 z-10 flex cursor-pointer items-center justify-center focus:outline-none focus-visible:ring-4 focus-visible:ring-white/80">{!isPlaying && <span className="grid h-20 w-20 place-items-center rounded-full bg-white/90 text-ink shadow-[0_10px_30px_rgba(0,0,0,.35)] backdrop-blur transition duration-200 hover:scale-110 hover:bg-teal hover:text-white sm:h-24 sm:w-24"><Play size={38} fill="currentColor" className="ml-1" /></span>}<span className="sr-only">{isPlaying ? "Chạm để dừng video" : "Chạm để phát video"}</span></button></div>{reels.length > 1 && <div className="flex gap-2 overflow-x-auto bg-ink p-3">{reels.map((video, index) => <button key={video} onClick={() => selectReel(index)} className={`shrink-0 rounded-lg px-3 py-2 text-xs font-bold transition ${activeReel === index ? "bg-sand text-ink" : "bg-white/10 text-white hover:bg-white/20"}`}>Video {index + 1}</button>)}</div>}</div>;
 }
 
 function Gallery() {
