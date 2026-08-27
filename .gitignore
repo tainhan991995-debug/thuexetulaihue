@@ -5,3 +5,5 @@ out/
 .env*
 !.env.example
 *.tsbuildinfo
+/.video-tools/
+/public/videos/*.mp4

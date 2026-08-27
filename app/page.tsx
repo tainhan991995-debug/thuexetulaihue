@@ -44,6 +44,9 @@ import videos from "../data/video.json";
 type Car = (typeof cars)[number];
 
 const brandName = "TRẠM NHÀ MINT";
+const reelPosters: Record<string, string> = {
+  "/videos/reels/vf3.mp4": "/images/reels/vf3-poster.webp",
+};
 const hotline = "0986 789 715";
 const hotlineHref = "tel:0986789715";
 const facebookHref = "https://www.facebook.com/thuexetulaihue.vn/";
@@ -337,7 +340,8 @@ function GalleryCarousel({ images, label, emptyMessage }: { images: string[]; la
 function ReelsPlayer({ reels }: { reels: string[] }) {
   const [activeReel, setActiveReel] = useState(0);
   if (!reels.length) return <div className="grid min-h-[430px] place-items-center rounded-[1.75rem] bg-mist p-8 text-center"><div><Star size={28} className="mx-auto text-teal" /><h3 className="mt-4 font-heading text-xl font-bold text-ink">Chưa có video / Reels</h3><p className="mt-2 text-sm leading-6 text-slate-500">Thêm file .mp4 vào thư mục public/videos/reels.</p></div></div>;
-  return <div className="overflow-hidden rounded-[1.75rem] bg-slate-950"><video key={reels[activeReel]} controls playsInline preload="metadata" className="h-[430px] w-full bg-black object-contain"><source src={reels[activeReel]} type="video/mp4" />Trình duyệt của bạn không hỗ trợ video.</video>{reels.length > 1 && <div className="flex gap-2 overflow-x-auto bg-ink p-3">{reels.map((video, index) => <button key={video} onClick={() => setActiveReel(index)} className={`shrink-0 rounded-lg px-3 py-2 text-xs font-bold transition ${activeReel === index ? "bg-sand text-ink" : "bg-white/10 text-white hover:bg-white/20"}`}>Video {index + 1}</button>)}</div>}</div>;
+  const activeVideo = reels[activeReel];
+  return <div className="overflow-hidden rounded-[1.75rem] bg-slate-950"><video key={activeVideo} controls playsInline preload="none" poster={reelPosters[activeVideo] ?? "/images/tram-nha-minh-fleet.webp"} aria-label={`Video đội xe ${activeReel + 1}`} className="h-[430px] w-full bg-black object-contain"><source src={activeVideo} type="video/mp4" />Trình duyệt của bạn không hỗ trợ video.</video>{reels.length > 1 && <div className="flex gap-2 overflow-x-auto bg-ink p-3">{reels.map((video, index) => <button key={video} onClick={() => setActiveReel(index)} className={`shrink-0 rounded-lg px-3 py-2 text-xs font-bold transition ${activeReel === index ? "bg-sand text-ink" : "bg-white/10 text-white hover:bg-white/20"}`}>Video {index + 1}</button>)}</div>}</div>;
 }
 
 function Gallery() {
