@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Be_Vietnam_Pro } from "next/font/google";
+import { Be_Vietnam_Pro, Lora } from "next/font/google";
 import { GoogleAnalytics } from "@next/third-parties/google";
 import "./globals.css";
 import { siteUrl, sitewideBusinessSchema } from "../data/structured-data";
@@ -11,6 +11,15 @@ const beVietnamPro = Be_Vietnam_Pro({
   preload: true,
   adjustFontFallback: true,
   variable: "--font-be-vietnam-pro",
+});
+
+const lora = Lora({
+  subsets: ["vietnamese"],
+  weight: ["600", "700"],
+  display: "swap",
+  preload: true,
+  adjustFontFallback: true,
+  variable: "--font-lora",
 });
 
 export const metadata: Metadata = {
@@ -64,7 +73,7 @@ export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="vi" className={`${beVietnamPro.variable} scroll-smooth`}>
+    <html lang="vi" className={`${beVietnamPro.variable} ${lora.variable} scroll-smooth`}>
       <body className="font-body bg-mist text-slate-700">
         <script
           type="application/ld+json"

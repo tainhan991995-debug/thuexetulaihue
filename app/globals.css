@@ -3,6 +3,7 @@
 @tailwind utilities;
 
 :root { color-scheme: light; --font-body: var(--font-be-vietnam-pro), "Be Vietnam Pro", sans-serif; --font-heading: var(--font-be-vietnam-pro), "Be Vietnam Pro", sans-serif; }
+.blog-article-title { font-family: var(--font-lora), "Lora", Georgia, serif; font-weight: 600; letter-spacing: -.025em; }
 * { box-sizing: border-box; }
 body { min-height: 100vh; -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility; }
 button, a, input, select { -webkit-tap-highlight-color: transparent; }
