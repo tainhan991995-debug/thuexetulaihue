@@ -47,6 +47,7 @@ type Car = (typeof cars)[number];
 const brandName = "TRẠM NHÀ MINT";
 const reelPosters: Record<string, string> = {
   "/videos/reels/vf3.mp4": "/images/reels/vf3-poster.webp",
+  "/videos/reels/vf3v2.mp4": "/images/reels/vf3v2-poster.webp",
 };
 const hotline = "0986 789 715";
 const hotlineHref = "tel:0986789715";
