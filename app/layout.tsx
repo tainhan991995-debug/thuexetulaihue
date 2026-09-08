@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Be_Vietnam_Pro, Lora } from "next/font/google";
 import { GoogleAnalytics } from "@next/third-parties/google";
+import Script from "next/script";
 import "./globals.css";
 import { siteUrl, sitewideBusinessSchema } from "../data/structured-data";
 
@@ -85,6 +86,13 @@ export default function RootLayout({
         {children}
 
         <GoogleAnalytics gaId="G-QDHC6ZZQ5D" />
+        <Script id="google-ads-base-tag" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            window.gtag = window.gtag || function gtag(){window.dataLayer.push(arguments);};
+            window.gtag("config", "AW-18435711940");
+          `}
+        </Script>
       </body>
     </html>
   );
