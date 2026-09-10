@@ -126,6 +126,20 @@ export default function RootLayout({
             })();
           `}
         </Script>
+        <Script id="google-ads-zalo-conversion" strategy="afterInteractive">
+          {`
+            document.addEventListener("click", function (event) {
+              if (!(event.target instanceof Element)) return;
+
+              var link = event.target.closest("a[href*='zalo.me/0986789715']");
+              if (!link || typeof window.gtag !== "function") return;
+
+              window.gtag("event", "conversion", {
+                send_to: "AW-18435711940/ZuM-CK3G3vIcEMTH6tZE",
+              });
+            }, true);
+          `}
+        </Script>
       </body>
     </html>
   );
