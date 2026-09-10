@@ -93,6 +93,39 @@ export default function RootLayout({
             window.gtag("config", "AW-18435711940");
           `}
         </Script>
+        <Script id="google-ads-hotline-conversion" strategy="afterInteractive">
+          {`
+            (function () {
+              var hotline = "0986789715";
+              var sendTo = "AW-18435711940/fbuaCOeY3PIcEMTH6tZE";
+
+              document.addEventListener("click", function (event) {
+                if (!(event.target instanceof Element)) return;
+
+                var link = event.target.closest("a[href^='tel:']");
+                if (!link) return;
+
+                var href = link.getAttribute("href") || "";
+                if (href.replace(/[^0-9]/g, "") !== hotline || typeof window.gtag !== "function") return;
+
+                event.preventDefault();
+                var openedPhone = false;
+                var openPhone = function () {
+                  if (openedPhone) return;
+                  openedPhone = true;
+                  window.location.href = href;
+                };
+
+                window.gtag("event", "conversion", {
+                  send_to: sendTo,
+                  event_callback: openPhone,
+                  event_timeout: 1000,
+                });
+                window.setTimeout(openPhone, 1200);
+              }, true);
+            })();
+          `}
+        </Script>
       </body>
     </html>
   );
