@@ -8,7 +8,7 @@
     "seats": "4 chỗ",
     "gearbox": "Số tự động",
     "fuel": "Điện",
-    "price": 550000,
+    "price": 500000,
     "status": "Có thể đặt",
     "range": "250 km/ngày",
     "feature": "Miễn phí sạc pin"
@@ -36,7 +36,7 @@
     "seats": "5 chỗ",
     "gearbox": "Số tự động",
     "fuel": "Điện",
-    "price": 800000,
+    "price": 750000,
     "status": "Có thể đặt",
     "range": "250 km/ngày",
     "feature": "Miễn phí sạc pin"
@@ -64,7 +64,7 @@
     "seats": "5 chỗ",
     "gearbox": "Số tự động",
     "fuel": "Điện",
-    "price": 1200000,
+    "price": 1100000,
     "status": "Có thể đặt",
     "range": "250 km/ngày",
     "feature": "Miễn phí sạc pin"
